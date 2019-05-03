@@ -1,0 +1,9 @@
+C:\Users\dosme\source\repos\SGPublicacionesCientificas\SGPublicacionesCientificas\bin\Debug\SGPublicacionesCientificas.exe.config
+C:\Users\dosme\source\repos\SGPublicacionesCientificas\SGPublicacionesCientificas\bin\Debug\SGPublicacionesCientificas.exe
+C:\Users\dosme\source\repos\SGPublicacionesCientificas\SGPublicacionesCientificas\bin\Debug\SGPublicacionesCientificas.pdb
+C:\Users\dosme\source\repos\SGPublicacionesCientificas\SGPublicacionesCientificas\obj\Debug\SGPublicacionesCientificas.csprojAssemblyReference.cache
+C:\Users\dosme\source\repos\SGPublicacionesCientificas\SGPublicacionesCientificas\obj\Debug\SGPublicacionesCientificas.Properties.Resources.resources
+C:\Users\dosme\source\repos\SGPublicacionesCientificas\SGPublicacionesCientificas\obj\Debug\SGPublicacionesCientificas.csproj.GenerateResource.cache
+C:\Users\dosme\source\repos\SGPublicacionesCientificas\SGPublicacionesCientificas\obj\Debug\SGPublicacionesCientificas.csproj.CoreCompileInputs.cache
+C:\Users\dosme\source\repos\SGPublicacionesCientificas\SGPublicacionesCientificas\obj\Debug\SGPublicacionesCientificas.exe
+C:\Users\dosme\source\repos\SGPublicacionesCientificas\SGPublicacionesCientificas\obj\Debug\SGPublicacionesCientificas.pdb
