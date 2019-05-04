@@ -19,7 +19,8 @@ namespace SGPublicacionesCientificas.CapaNegocio
             DNI = dni;
             Edad = edad;
             Departamento = departamento;
-            Contador = Contador + 1;
+            ContadorAutor = ContadorAutor + 1;
+            deUniversidad = true;
         }
     }
 }

@@ -12,7 +12,8 @@ namespace SGPublicacionesCientificas.CapaNegocio
         {
             Nombre = nombre;
             Apellido = apellido;
-            Contador = Contador + 1;
+            ContadorAutor = ContadorAutor + 1;
+            deUniversidad = false;
         }
     }
 }

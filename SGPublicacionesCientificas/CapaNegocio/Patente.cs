@@ -16,6 +16,7 @@ namespace SGPublicacionesCientificas.CapaNegocio
             Año = año;
             FechaVencimiento = vencimiento;
             Cuantia = cuantia;
+            ContadorProduccion = ContadorProduccion + 1;
         }
     }
 }

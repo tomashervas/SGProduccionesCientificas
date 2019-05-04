@@ -8,8 +8,8 @@ namespace SGPublicacionesCientificas.CapaNegocio
 {
     public abstract class ProduccionCientifica
     {
-        protected static int Contador = 1;
-        public int ID { get; } = Contador;
+        protected static int ContadorProduccion = 1;
+        public int ID { get; } = ContadorProduccion;
         public string Titulo { get; set; }
         public int Año { get; set; }
     }
