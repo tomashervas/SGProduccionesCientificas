@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CapaDAOs\AutorUniversidadDAO.cs" />
     <Compile Include="CapaDAOs\BBDD.cs" />
     <Compile Include="CapaNegocio\ArticuloCientifico.cs" />
     <Compile Include="CapaNegocio\ArticuloConferencia.cs" />
