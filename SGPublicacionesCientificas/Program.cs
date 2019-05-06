@@ -35,16 +35,31 @@ namespace SGPublicacionesCientificas
             //Jose.Edad = 25;
             //AutorUniversidadDAO.ActualizarRegistro(Jose);
             //AutorUniversidadDAO.BorrarRegistro(Jose);
-            Console.WriteLine("Hola");
-            ICollection<AutorUniversidad> autores = AutorUniversidadDAO.BuscarAutorUniversidadPorNombre("Jose");
+            //Console.WriteLine("Hola");
+            /*ICollection<AutorUniversidad> autores = AutorUniversidadDAO.BuscarAutorUniversidadPorNombre("Jose");
             foreach (AutorUniversidad autor in autores)
             {
                 Console.WriteLine(autor.ID + " " + autor.Nombre + " " + autor.Apellido + " " + autor.DNI + " " + autor.Edad + " " + autor.Departamento);
-            }
+            }*/
             //Console.WriteLine(autores.Count());
             //AutorUniversidad autor2 = AutorUniversidadDAO.BuscarAutorUniversidadPorID(1);
             //Console.WriteLine(autor2.ID + " " + autor2.Nombre + " " + autor2.Apellido + " " + autor2.DNI + " " + autor2.Edad + " " + autor2.Departamento);
-            Console.WriteLine("hola");
+            //Console.WriteLine("hola");
+
+            //----------------------Probando DAO Autor Externo-----------------------------------------------
+            /*AutorExterno pilu = new AutorExterno("Pilu", "Fernández");
+            AutorExternoDAO.Insertar(pilu);
+            pilu.Apellido = "Accino";
+            AutorExternoDAO.ActualizarRegistro(pilu);*/
+            //AutorExternoDAO.BorrarRegistro(pilu);
+            ICollection<AutorExterno> autores = AutorExternoDAO.MostrarTodo();
+            foreach (AutorExterno autor in autores)
+            {
+                Console.WriteLine(autor.ID + " " + autor.Nombre + " " + autor.Apellido);
+            }
+            Console.WriteLine(autores.Count());
+
+
             BBDD.Desconectar();
         }
     }
