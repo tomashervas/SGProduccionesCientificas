@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SGPublicacionesCientificas.CapaNegocio
 {
-    class AutorUniversidad : Autor
+    public class AutorUniversidad : Autor
     {
         public string DNI { get; set; }
         public int Edad { get; set; }
@@ -21,6 +21,15 @@ namespace SGPublicacionesCientificas.CapaNegocio
             Departamento = departamento;
             ContadorAutor = ContadorAutor + 1;
             deUniversidad = true;
+            
         }
+
+        public AutorUniversidad()
+        {
+            ContadorAutor = ContadorAutor + 1;
+            deUniversidad = true;
+        }
+
+
     }
 }

@@ -28,6 +28,24 @@ namespace SGPublicacionesCientificas.CapaDAOs
             return ListaAutoresExternos;
         }
 
+        /// <summary>
+        /// Funcion que accede a la tabla autores y localiza el valor máximo de ID para utilizarlo como contador de IDs en los constructores
+        /// de autor
+        /// </summary>
+        /// <returns>Entero que cuyo valor es el último ID de autores</returns>
+        public static int IDactual()
+        {
+            int ID = 0;
+            MySqlCommand comando = new MySqlCommand("SELECT MAX(autores.ID) FROM autores;");
+            MySqlDataReader reader = BBDD.ExecuteQuery(comando);
+            if (reader.HasRows && reader.Read())
+            {
+                ID = reader.GetInt32(0);
+            }
+            reader.Close();
+            return ID;
+        }
+
         public static ICollection<AutorExterno> BuscarAutorExternoPorNombre(string nombre)
         {
             ICollection<AutorExterno> ListaAutoresExternos = new List<AutorExterno>();

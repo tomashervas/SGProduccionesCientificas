@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SGPublicacionesCientificas.CapaNegocio;
 using SGPublicacionesCientificas.CapaDAOs;
+using SGPublicacionesCientificas.CapaPresentacion;
 
 namespace SGPublicacionesCientificas
 {
@@ -18,9 +19,9 @@ namespace SGPublicacionesCientificas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+            Application.Run(new MenuForm());
 
-            BBDD.Conectar("root");
+            //BBDD.Conectar("root");
             /*AutorUniversidad Jose = new AutorUniversidad("Jose", "Hervas", "53601857N", 33, "Matemáticas");
             Console.WriteLine(Jose.ID);
             AutorUniversidad Jose2 = new AutorUniversidad("Jose", "Hervas", "53601857N", 33, "Matemáticas");
@@ -52,15 +53,17 @@ namespace SGPublicacionesCientificas
             pilu.Apellido = "Accino";
             AutorExternoDAO.ActualizarRegistro(pilu);*/
             //AutorExternoDAO.BorrarRegistro(pilu);
-            ICollection<AutorExterno> autores = AutorExternoDAO.MostrarTodo();
+            /*ICollection<AutorExterno> autores = AutorExternoDAO.MostrarTodo();
             foreach (AutorExterno autor in autores)
             {
                 Console.WriteLine(autor.ID + " " + autor.Nombre + " " + autor.Apellido);
             }
-            Console.WriteLine(autores.Count());
+            Console.WriteLine(autores.Count());*/
+            //AutorUniversidad a1 = new AutorUniversidad("tomas","garcia","47123456n",45,"geologia");
+            //Console.WriteLine(a1.ID);
+            
 
-
-            BBDD.Desconectar();
+            //BBDD.Desconectar();
         }
     }
 }
