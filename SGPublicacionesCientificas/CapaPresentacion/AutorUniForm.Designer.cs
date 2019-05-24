@@ -55,7 +55,7 @@
             // 
             this.dataGridAutoresUni.AllowUserToAddRows = false;
             this.dataGridAutoresUni.AllowUserToDeleteRows = false;
-            this.dataGridAutoresUni.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridAutoresUni.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.dataGridAutoresUni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridAutoresUni.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -113,6 +113,7 @@
             // 
             // textNombreUni
             // 
+            this.textNombreUni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(207)))));
             this.textNombreUni.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreUni.Location = new System.Drawing.Point(142, 309);
             this.textNombreUni.Name = "textNombreUni";
@@ -131,6 +132,7 @@
             // 
             // textApellidoUni
             // 
+            this.textApellidoUni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(207)))));
             this.textApellidoUni.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textApellidoUni.Location = new System.Drawing.Point(142, 340);
             this.textApellidoUni.Name = "textApellidoUni";
@@ -203,41 +205,45 @@
             // 
             // guardarBoton
             // 
+            this.guardarBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
             this.guardarBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardarBoton.Location = new System.Drawing.Point(12, 467);
             this.guardarBoton.Name = "guardarBoton";
             this.guardarBoton.Size = new System.Drawing.Size(100, 32);
             this.guardarBoton.TabIndex = 3;
             this.guardarBoton.Text = "Guardar";
-            this.guardarBoton.UseVisualStyleBackColor = true;
+            this.guardarBoton.UseVisualStyleBackColor = false;
             this.guardarBoton.Click += new System.EventHandler(this.guardarBoton_Click);
             // 
             // BorrarBoton
             // 
+            this.BorrarBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
             this.BorrarBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BorrarBoton.Location = new System.Drawing.Point(118, 467);
             this.BorrarBoton.Name = "BorrarBoton";
             this.BorrarBoton.Size = new System.Drawing.Size(133, 32);
             this.BorrarBoton.TabIndex = 3;
             this.BorrarBoton.Text = "Borrar Formulario";
-            this.BorrarBoton.UseVisualStyleBackColor = true;
+            this.BorrarBoton.UseVisualStyleBackColor = false;
             this.BorrarBoton.Click += new System.EventHandler(this.BorrarBoton_Click);
             // 
             // EliminarAutorBoton
             // 
+            this.EliminarAutorBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
             this.EliminarAutorBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarAutorBoton.Location = new System.Drawing.Point(257, 467);
             this.EliminarAutorBoton.Name = "EliminarAutorBoton";
             this.EliminarAutorBoton.Size = new System.Drawing.Size(115, 32);
             this.EliminarAutorBoton.TabIndex = 3;
             this.EliminarAutorBoton.Text = "Eliminar";
-            this.EliminarAutorBoton.UseVisualStyleBackColor = true;
+            this.EliminarAutorBoton.UseVisualStyleBackColor = false;
             this.EliminarAutorBoton.Click += new System.EventHandler(this.EliminarAutorBoton_Click);
             // 
             // AutorUniForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(384, 511);
             this.Controls.Add(this.EliminarAutorBoton);
             this.Controls.Add(this.BorrarBoton);

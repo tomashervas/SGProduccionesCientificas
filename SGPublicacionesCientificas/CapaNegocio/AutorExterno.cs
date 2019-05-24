@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace SGPublicacionesCientificas.CapaNegocio
 {
-    class AutorExterno : Autor
+    public class AutorExterno : Autor
     {
         public AutorExterno(string nombre, string apellido)
         {
             Nombre = nombre;
             Apellido = apellido;
+            ContadorAutor = ContadorAutor + 1;
+            deUniversidad = false;
+        }
+        public AutorExterno()
+        {
             ContadorAutor = ContadorAutor + 1;
             deUniversidad = false;
         }

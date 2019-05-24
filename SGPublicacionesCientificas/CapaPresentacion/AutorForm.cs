@@ -29,5 +29,11 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             AutorUniForm formUni = new AutorUniForm();
             formUni.ShowDialog();
         }
+
+        private void BotonExterno_Click(object sender, EventArgs e)
+        {
+            AutorExtForm formExt = new AutorExtForm();
+            formExt.ShowDialog();
+        }
     }
 }

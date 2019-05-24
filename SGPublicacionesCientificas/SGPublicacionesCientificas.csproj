@@ -73,6 +73,12 @@
     <Compile Include="CapaNegocio\AutorUniversidad.cs" />
     <Compile Include="CapaNegocio\Patente.cs" />
     <Compile Include="CapaNegocio\ProduccionCientifica.cs" />
+    <Compile Include="CapaPresentacion\AutorExtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\AutorExtForm.Designer.cs">
+      <DependentUpon>AutorExtForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\AutorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CapaPresentacion\AutorExtForm.resx">
+      <DependentUpon>AutorExtForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\AutorForm.resx">
       <DependentUpon>AutorForm.cs</DependentUpon>
     </EmbeddedResource>
