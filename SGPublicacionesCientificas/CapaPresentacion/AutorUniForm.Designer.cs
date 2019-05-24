@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.dataGridAutoresUni = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textNombreUni = new System.Windows.Forms.TextBox();
             this.NombreUni = new System.Windows.Forms.Label();
             this.textApellidoUni = new System.Windows.Forms.TextBox();
@@ -41,12 +47,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.guardarBoton = new System.Windows.Forms.Button();
             this.BorrarBoton = new System.Windows.Forms.Button();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EliminarAutorBoton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAutoresUni)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,6 +74,42 @@
             this.dataGridAutoresUni.Size = new System.Drawing.Size(360, 263);
             this.dataGridAutoresUni.TabIndex = 0;
             this.dataGridAutoresUni.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridAutoresUni_CellClick);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            // 
+            // Departamento
+            // 
+            this.Departamento.HeaderText = "Departamento";
+            this.Departamento.Name = "Departamento";
+            this.Departamento.ReadOnly = true;
+            // 
+            // DNI
+            // 
+            this.DNI.HeaderText = "DNI";
+            this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
+            // 
+            // Edad
+            // 
+            this.Edad.HeaderText = "Edad";
+            this.Edad.Name = "Edad";
+            this.Edad.ReadOnly = true;
             // 
             // textNombreUni
             // 
@@ -169,7 +206,7 @@
             this.guardarBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardarBoton.Location = new System.Drawing.Point(12, 467);
             this.guardarBoton.Name = "guardarBoton";
-            this.guardarBoton.Size = new System.Drawing.Size(75, 32);
+            this.guardarBoton.Size = new System.Drawing.Size(100, 32);
             this.guardarBoton.TabIndex = 3;
             this.guardarBoton.Text = "Guardar";
             this.guardarBoton.UseVisualStyleBackColor = true;
@@ -178,7 +215,7 @@
             // BorrarBoton
             // 
             this.BorrarBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BorrarBoton.Location = new System.Drawing.Point(93, 467);
+            this.BorrarBoton.Location = new System.Drawing.Point(118, 467);
             this.BorrarBoton.Name = "BorrarBoton";
             this.BorrarBoton.Size = new System.Drawing.Size(133, 32);
             this.BorrarBoton.TabIndex = 3;
@@ -186,47 +223,23 @@
             this.BorrarBoton.UseVisualStyleBackColor = true;
             this.BorrarBoton.Click += new System.EventHandler(this.BorrarBoton_Click);
             // 
-            // ID
+            // EliminarAutorBoton
             // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // Departamento
-            // 
-            this.Departamento.HeaderText = "Departamento";
-            this.Departamento.Name = "Departamento";
-            this.Departamento.ReadOnly = true;
-            // 
-            // DNI
-            // 
-            this.DNI.HeaderText = "DNI";
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            // 
-            // Edad
-            // 
-            this.Edad.HeaderText = "Edad";
-            this.Edad.Name = "Edad";
-            this.Edad.ReadOnly = true;
+            this.EliminarAutorBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EliminarAutorBoton.Location = new System.Drawing.Point(257, 467);
+            this.EliminarAutorBoton.Name = "EliminarAutorBoton";
+            this.EliminarAutorBoton.Size = new System.Drawing.Size(115, 32);
+            this.EliminarAutorBoton.TabIndex = 3;
+            this.EliminarAutorBoton.Text = "Eliminar";
+            this.EliminarAutorBoton.UseVisualStyleBackColor = true;
+            this.EliminarAutorBoton.Click += new System.EventHandler(this.EliminarAutorBoton_Click);
             // 
             // AutorUniForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 511);
+            this.Controls.Add(this.EliminarAutorBoton);
             this.Controls.Add(this.BorrarBoton);
             this.Controls.Add(this.guardarBoton);
             this.Controls.Add(this.label2);
@@ -270,5 +283,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Departamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
         private System.Windows.Forms.DataGridViewTextBoxColumn Edad;
+        private System.Windows.Forms.Button EliminarAutorBoton;
     }
 }

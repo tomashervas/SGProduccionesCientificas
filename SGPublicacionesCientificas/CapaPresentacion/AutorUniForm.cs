@@ -14,7 +14,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
 {
     public partial class AutorUniForm : Form
     {
-        public ICollection<AutorUniversidad> autoresUni;
+        public List<AutorUniversidad> autoresUni;
         private bool modificado = false;
         private bool FilaSeleccionada = false;
 
@@ -31,7 +31,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
                 }
             }
             /*AutorUniversidad autor = new AutorUniversidad();
-            autor = (AutorUniversidad)dataGridAutoresUni.CurrentRow.DataBoundItem;*/
+            autor = (AutorUniversidad)dataGridAutoresUni.CurrentRow.DataBoundItem;funciona con DataSource*/
             return autor;
         }
 
@@ -41,15 +41,13 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             foreach(AutorUniversidad autor in autoresUni)
             {
                 dataGridAutoresUni.Rows.Add(autor.ID, autor.Nombre, autor.Apellido,autor.Departamento, autor.DNI, autor.Edad);
-                Console.WriteLine(autor.Edad);
             }
         }
    
         public AutorUniForm()
         {
             BBDD.Conectar("root");
-
-            autoresUni = AutorUniversidadDAO.MostrarTodo();
+            autoresUni = (List<AutorUniversidad>)AutorUniversidadDAO.MostrarTodo();
             InitializeComponent();
             //dataGridAutoresUni.DataSource = autoresUni;
             RellenarDataGrid();
@@ -81,7 +79,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
         private void InsertarAutorUni()
         {
             AutorUniversidad autor = new AutorUniversidad();
-            if (textNombreUni.Text.Trim() == "" || textEdad.Text.Trim() == "")
+            if (textNombreUni.Text.Trim() == "" || textApellidoUni.Text.Trim() == "" || textEdad.Text.Trim() == "")
             {
                 MessageBox.Show("Debe rellenar los campos primero");
             }
@@ -92,23 +90,44 @@ namespace SGPublicacionesCientificas.CapaPresentacion
                 autor.DNI = textDNI.Text;
                 autor.Departamento = textDepartamentoUni.Text;
                 autor.Edad = int.Parse(textEdad.Text);
-                Console.WriteLine(autoresUni.Count());
+                //Console.WriteLine(autoresUni.Count());
                 autoresUni.Add(autor);
-                Console.WriteLine(autoresUni.Count());
+                //Console.WriteLine(autoresUni.Count());
                 AutorUniversidadDAO.Insertar(autor);
                 MessageBox.Show("Registro guardado con éxito");
                 BorrarForm();
                 RellenarDataGrid();
-                
-
             }
+        }
+
+        private void EliminarAutor()
+        {
+            AutorUniversidad autor = BuscarSeleccionado();
+            //Console.WriteLine(autoresUni.Count());
+            dataGridAutoresUni.Rows.Remove(dataGridAutoresUni.SelectedRows[0]);
+            AutorUniversidadDAO.BorrarRegistro(autor);
+            autoresUni.Remove(autor);
+            //Console.WriteLine(autoresUni.Count());
         }
 
         private void ModificarAutorUni()
         {
+            AutorUniversidad autor = BuscarSeleccionado();
+            autor = BuscarSeleccionado();
+            autor.Nombre = textNombreUni.Text;
+            autor.Apellido = textApellidoUni.Text;
+            autor.DNI = textDNI.Text;
+            autor.Departamento = textDepartamentoUni.Text;
+            autor.Edad = int.Parse(textEdad.Text);
 
-
+            int indice = autoresUni.IndexOf(autor);
+            if(indice >= 0)
+            {
+                autoresUni[indice] = autor;
+            }
+            AutorUniversidadDAO.ActualizarRegistro(autor);
             MessageBox.Show("Registro modificado con éxito");
+            RellenarDataGrid();
         }
 
         private void guardarBoton_Click(object sender, EventArgs e)
@@ -138,6 +157,24 @@ namespace SGPublicacionesCientificas.CapaPresentacion
         {
             BorrarForm();
             FilaSeleccionada = false;
+        }
+
+        private void EliminarAutorBoton_Click(object sender, EventArgs e)
+        {
+            if (dataGridAutoresUni.SelectedRows.Count > 0)
+            {
+                DialogResult respuesta = MessageBox.Show("¿Está seguro de que quiere eliminar este registro de forma permanente?", "Eliminar autor", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if(respuesta == DialogResult.Yes)
+                {
+                    EliminarAutor();
+                    MessageBox.Show("El autor se ha modificado correctamente");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione primero un autor");
+            }
+            
         }
     }
 }
