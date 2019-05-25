@@ -77,6 +77,7 @@
             this.BotonPatente.TabIndex = 0;
             this.BotonPatente.Text = "Patente";
             this.BotonPatente.UseVisualStyleBackColor = false;
+            this.BotonPatente.Click += new System.EventHandler(this.BotonPatente_Click);
             // 
             // BotonAutor
             // 

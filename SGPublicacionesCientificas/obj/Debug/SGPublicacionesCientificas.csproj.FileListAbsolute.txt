@@ -32,3 +32,4 @@ C:\Users\dosme\source\repos\SGProduccionesCientificas\SGPublicacionesCientificas
 C:\Users\dosme\source\repos\SGProduccionesCientificas\SGPublicacionesCientificas\obj\Debug\SGPublicacionesCientificas.CapaPresentacion.MenuForm.resources
 C:\Users\dosme\source\repos\SGProduccionesCientificas\SGPublicacionesCientificas\obj\Debug\SGPublicacionesCientificas.CapaPresentacion.AutorForm.resources
 C:\Users\dosme\source\repos\SGProduccionesCientificas\SGPublicacionesCientificas\obj\Debug\SGPublicacionesCientificas.CapaPresentacion.AutorExtForm.resources
+C:\Users\dosme\source\repos\SGProduccionesCientificas\SGPublicacionesCientificas\obj\Debug\SGPublicacionesCientificas.CapaPresentacion.PatenteForm.resources

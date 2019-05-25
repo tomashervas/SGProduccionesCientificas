@@ -22,5 +22,11 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             AutorForm autorForm = new AutorForm();
             autorForm.ShowDialog();
         }
+
+        private void BotonPatente_Click(object sender, EventArgs e)
+        {
+            PatenteForm patenteForm = new PatenteForm();
+            patenteForm.ShowDialog();
+        }
     }
 }

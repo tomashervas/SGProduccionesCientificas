@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -61,6 +62,21 @@ namespace SGPublicacionesCientificas
             Console.WriteLine(autores.Count());*/
             //AutorUniversidad a1 = new AutorUniversidad("tomas","garcia","47123456n",45,"geologia");
             //Console.WriteLine(a1.ID);
+
+            //------------------------Probando DAO Patente-------------------------------------------------------
+
+            /*ICollection<Patente> patentes = PatenteDAO.MostrarTodo();
+            foreach (Patente pat in patentes)
+            {
+                Console.WriteLine(pat.ID + " " + pat.Titulo + " " + pat.Año + " " + pat.Cuantia +" "+ pat.FechaVencimiento);
+            }*/
+
+            //Patente pat1 = new Patente("patenteX", 2014, "2029-01-25",2000);
+            //pat1.ID = 2;
+            //PatenteDAO.BorrarRegistro(pat1);
+            //PatenteDAO.Insertar(pat1);
+
+            //Console.WriteLine(PatenteDAO.IDactual());
             
 
             //BBDD.Desconectar();

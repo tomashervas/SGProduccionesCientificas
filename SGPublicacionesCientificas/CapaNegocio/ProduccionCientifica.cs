@@ -3,13 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SGPublicacionesCientificas.CapaDAOs;
+using SGPublicacionesCientificas.CapaPresentacion;
 
 namespace SGPublicacionesCientificas.CapaNegocio
 {
     public abstract class ProduccionCientifica
     {
-        protected static int ContadorProduccion = 1;
-        public int ID { get; } = ContadorProduccion;
+        protected bool Equals(ProduccionCientifica other)
+        {
+            return ID == other.ID;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((ProduccionCientifica) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return ID;
+        }
+
+        public int ID { get; set; }
         public string Titulo { get; set; }
         public int Año { get; set; }
     }
