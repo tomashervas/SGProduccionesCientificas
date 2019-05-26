@@ -110,6 +110,10 @@ namespace SGPublicacionesCientificas.CapaPresentacion
                 patente.FechaVencimiento = dateTimePickerP.Value;
                 ListaPatentes.Add(patente);
                 PatenteDAO.Insertar(patente);
+                foreach (int id in ListaIDAutoresPublicacion)
+                {
+                    PatenteDAO.InsertarPublicaPatente(id, patente.ID);
+                }
                 MessageBox.Show("Registro guardado con éxito");
                 BorrarForm();
                 RellenarDataGrid();
@@ -163,6 +167,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             textCuantia.Clear();
             dateTimePickerP.Text= DateTime.Today.Date.ToString();
             dataGridAutoresPublicacion.Rows.Clear();
+            ListaAutoresPublicacion.Clear();
 
         }
 
@@ -197,6 +202,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
 
         private void dataGridPatente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            modificado = true;
             ListaAutoresPublicacion.Clear();
             ListaIDAutoresPublicacion.Clear();
             RellenarForm();
@@ -219,8 +225,24 @@ namespace SGPublicacionesCientificas.CapaPresentacion
 
         private void AñadirAutor_Click(object sender, EventArgs e)
         {
-            ListaAutoresPublicacion.Add(AutorSeleccionado);
-            RellenarDataAutores(dataGridAutoresPublicacion, (List<AutorExterno>)ListaAutoresPublicacion);
+            if (modificado)
+            {
+                MessageBox.Show("No se puede modificar los autores de una producción publicada anteriormente");
+                modificado = false;
+            }
+            else
+            {
+                if (AutorSeleccionado != null)
+                {
+                    ListaAutoresPublicacion.Add(AutorSeleccionado);
+                    ListaIDAutoresPublicacion.Add(AutorSeleccionado.ID);
+                    RellenarDataAutores(dataGridAutoresPublicacion, (List<AutorExterno>)ListaAutoresPublicacion);
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione primero un autor que añadir");
+                }
+            }
         }
     }
 }

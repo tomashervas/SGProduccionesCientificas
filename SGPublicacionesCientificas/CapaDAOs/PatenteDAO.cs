@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using SGPublicacionesCientificas.CapaNegocio;
+using SGPublicacionesCientificas.CapaPresentacion;
 
 namespace SGPublicacionesCientificas.CapaDAOs
 {
@@ -61,7 +62,6 @@ namespace SGPublicacionesCientificas.CapaDAOs
              reader.Close();
              return ListaAutoresUniversidad;
          }*/
-         
 
         public static bool ActualizarRegistro(Patente patente)
         {
@@ -77,6 +77,16 @@ namespace SGPublicacionesCientificas.CapaDAOs
             return filas >= 1;
 
         }
+
+        public static bool InsertarPublicaPatente(int id_autor,int id_publi)
+        {
+            MySqlCommand comando = new MySqlCommand("INSERT INTO `publica` (`id_autor`, `id_produccion`) VALUES (@id_autor, @id);");
+            comando.Parameters.AddWithValue("@id", id_publi);
+            comando.Parameters.AddWithValue("@id_autor", id_autor);
+            int filas = BBDD.ExecuteNonQuery(comando);
+            return filas >= 1;
+        }
+
 
         public static bool Insertar(Patente patente)
         {
