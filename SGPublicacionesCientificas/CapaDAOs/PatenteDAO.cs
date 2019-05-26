@@ -24,41 +24,44 @@ namespace SGPublicacionesCientificas.CapaDAOs
             return Lista;
         }
 
-       /* public static ICollection<AutorUniversidad> BuscarAutorUniversidadPorNombre(string nombre)
+        public static ICollection<int> MostrarAutoresPublicacion(int id)
         {
-            ICollection<AutorUniversidad> ListaAutoresUniversidad = new List<AutorUniversidad>();
-            MySqlCommand comando = new MySqlCommand("SELECT autores.ID,autores.nombre,autores.apellido,autoresuniversidad.DNI,autoresuniversidad.edad,autoresuniversidad.departamento" +
-                                                    " FROM autores INNER JOIN autoresuniversidad ON autores.ID=autoresuniversidad.id_autor WHERE autores.nombre=@nombre;");
-            comando.Parameters.AddWithValue("@nombre", nombre);
+            ICollection<int> Lista = new List<int>();
+            MySqlCommand comando = new MySqlCommand("SELECT publica.id_autor FROM publica WHERE publica.id_produccion=@id;");
+            comando.Parameters.AddWithValue("@id", id);
             MySqlDataReader reader = BBDD.ExecuteQuery(comando);
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    AutorUniversidad autor = new AutorUniversidad(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(4), reader.GetString(5));
-                    autor.ID = reader.GetInt32(0);
-                    ListaAutoresUniversidad.Add(autor);
+                    int ID = reader.GetInt32(0);
+                    Lista.Add(ID);
                 }
             }
             reader.Close();
-            return ListaAutoresUniversidad;
+            return Lista;
         }
 
-        public static AutorUniversidad BuscarAutorUniversidadPorID(int id)
-        {
-            AutorUniversidad autor = null;
-            MySqlCommand comando = new MySqlCommand("SELECT autores.ID,autores.nombre,autores.apellido,autoresuniversidad.DNI,autoresuniversidad.edad,autoresuniversidad.departamento" +
-                                                    " FROM autores INNER JOIN autoresuniversidad ON autores.ID=autoresuniversidad.id_autor WHERE autores.ID=@ID;");
-            comando.Parameters.AddWithValue("@ID", id);
-            MySqlDataReader reader = BBDD.ExecuteQuery(comando);
-            if(reader.HasRows && reader.Read())
-            {
-                autor = new AutorUniversidad(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(4), reader.GetString(5));
-                autor.ID = reader.GetInt32(0);
-            }
-            reader.Close();
-            return autor;
-        }*/
+        /* public static ICollection<AutorUniversidad> BuscarAutorUniversidadPorNombre(string nombre)
+         {
+             ICollection<AutorUniversidad> ListaAutoresUniversidad = new List<AutorUniversidad>();
+             MySqlCommand comando = new MySqlCommand("SELECT autores.ID,autores.nombre,autores.apellido,autoresuniversidad.DNI,autoresuniversidad.edad,autoresuniversidad.departamento" +
+                                                     " FROM autores INNER JOIN autoresuniversidad ON autores.ID=autoresuniversidad.id_autor WHERE autores.nombre=@nombre;");
+             comando.Parameters.AddWithValue("@nombre", nombre);
+             MySqlDataReader reader = BBDD.ExecuteQuery(comando);
+             if (reader.HasRows)
+             {
+                 while (reader.Read())
+                 {
+                     AutorUniversidad autor = new AutorUniversidad(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(4), reader.GetString(5));
+                     autor.ID = reader.GetInt32(0);
+                     ListaAutoresUniversidad.Add(autor);
+                 }
+             }
+             reader.Close();
+             return ListaAutoresUniversidad;
+         }*/
+         
 
         public static bool ActualizarRegistro(Patente patente)
         {

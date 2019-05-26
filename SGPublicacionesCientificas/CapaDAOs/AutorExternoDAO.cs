@@ -28,6 +28,24 @@ namespace SGPublicacionesCientificas.CapaDAOs
             return ListaAutoresExternos;
         }
 
+        public static ICollection<AutorExterno> MostrarExternosInternos()
+        {
+            ICollection<AutorExterno> Lista = new List<AutorExterno>();
+            MySqlCommand comando = new MySqlCommand("SELECT autores.ID,autores.nombre,autores.apellido FROM autores;");
+            MySqlDataReader reader = BBDD.ExecuteQuery(comando);
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    AutorExterno autor = new AutorExterno(reader.GetString(1), reader.GetString(2));
+                    autor.ID = reader.GetInt32(0);
+                    Lista.Add(autor);
+                }
+            }
+            reader.Close();
+            return Lista;
+        }
+
         /// <summary>
         /// Funcion que accede a la tabla autores y localiza el valor máximo de ID para utilizarlo como contador de IDs en los constructores
         /// de autor
@@ -69,6 +87,26 @@ namespace SGPublicacionesCientificas.CapaDAOs
         {
             AutorExterno autor = null;
             MySqlCommand comando = new MySqlCommand("SELECT autores.ID,autores.nombre,autores.apellido FROM autores WHERE autores.deUniversidad=0 && autores.ID=@ID;");
+            comando.Parameters.AddWithValue("@ID", id);
+            MySqlDataReader reader = BBDD.ExecuteQuery(comando);
+            if (reader.HasRows && reader.Read())
+            {
+                autor = new AutorExterno(reader.GetString(1), reader.GetString(2));
+                autor.ID = reader.GetInt32(0);
+            }
+            reader.Close();
+            return autor;
+        }
+
+        /// <summary>
+        /// Metodo que busca por id la informacion de los autores
+        /// </summary>
+        /// <param name="id">Entero ID que filtra el listado de la tabla autores</param>
+        /// <returns></returns>
+        public static AutorExterno BuscarAutorPorID(int id)
+        {
+            AutorExterno autor = null;
+            MySqlCommand comando = new MySqlCommand("SELECT autores.ID,autores.nombre,autores.apellido FROM autores WHERE autores.ID=@ID;");
             comando.Parameters.AddWithValue("@ID", id);
             MySqlDataReader reader = BBDD.ExecuteQuery(comando);
             if (reader.HasRows && reader.Read())

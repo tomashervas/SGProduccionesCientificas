@@ -39,19 +39,31 @@
             this.textCuantia = new System.Windows.Forms.TextBox();
             this.textAño = new System.Windows.Forms.TextBox();
             this.textTitulo = new System.Windows.Forms.TextBox();
+            this.dateTimePickerP = new System.Windows.Forms.DateTimePicker();
+            this.dataGridAutoresPublicacion = new System.Windows.Forms.DataGridView();
+            this.autoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridAutores = new System.Windows.Forms.DataGridView();
+            this.IDautores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreAutores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApellidoAutores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AñadirAutor = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreAño = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCuantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimePickerP = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPatente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAutoresPublicacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAutores)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridPatente
             // 
             this.dataGridPatente.AllowUserToAddRows = false;
             this.dataGridPatente.AllowUserToDeleteRows = false;
+            this.dataGridPatente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridPatente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.dataGridPatente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPatente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -66,8 +78,9 @@
             this.dataGridPatente.MultiSelect = false;
             this.dataGridPatente.Name = "dataGridPatente";
             this.dataGridPatente.ReadOnly = true;
+            this.dataGridPatente.RowHeadersVisible = false;
             this.dataGridPatente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridPatente.Size = new System.Drawing.Size(360, 263);
+            this.dataGridPatente.Size = new System.Drawing.Size(422, 229);
             this.dataGridPatente.TabIndex = 1;
             this.dataGridPatente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPatente_CellClick);
             // 
@@ -75,7 +88,7 @@
             // 
             this.EliminarAutorBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
             this.EliminarAutorBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarAutorBoton.Location = new System.Drawing.Point(257, 467);
+            this.EliminarAutorBoton.Location = new System.Drawing.Point(257, 585);
             this.EliminarAutorBoton.Name = "EliminarAutorBoton";
             this.EliminarAutorBoton.Size = new System.Drawing.Size(115, 32);
             this.EliminarAutorBoton.TabIndex = 14;
@@ -87,7 +100,7 @@
             // 
             this.BorrarBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
             this.BorrarBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BorrarBoton.Location = new System.Drawing.Point(118, 467);
+            this.BorrarBoton.Location = new System.Drawing.Point(118, 585);
             this.BorrarBoton.Name = "BorrarBoton";
             this.BorrarBoton.Size = new System.Drawing.Size(133, 32);
             this.BorrarBoton.TabIndex = 15;
@@ -99,7 +112,7 @@
             // 
             this.guardarBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
             this.guardarBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardarBoton.Location = new System.Drawing.Point(12, 467);
+            this.guardarBoton.Location = new System.Drawing.Point(12, 585);
             this.guardarBoton.Name = "guardarBoton";
             this.guardarBoton.Size = new System.Drawing.Size(100, 32);
             this.guardarBoton.TabIndex = 16;
@@ -111,7 +124,7 @@
             // 
             this.FechaVencimiento.AutoSize = true;
             this.FechaVencimiento.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FechaVencimiento.Location = new System.Drawing.Point(4, 402);
+            this.FechaVencimiento.Location = new System.Drawing.Point(12, 554);
             this.FechaVencimiento.Name = "FechaVencimiento";
             this.FechaVencimiento.Size = new System.Drawing.Size(132, 17);
             this.FechaVencimiento.TabIndex = 10;
@@ -121,7 +134,7 @@
             // 
             this.cuantia.AutoSize = true;
             this.cuantia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuantia.Location = new System.Drawing.Point(12, 371);
+            this.cuantia.Location = new System.Drawing.Point(12, 523);
             this.cuantia.Name = "cuantia";
             this.cuantia.Size = new System.Drawing.Size(58, 17);
             this.cuantia.TabIndex = 11;
@@ -131,7 +144,7 @@
             // 
             this.Año.AutoSize = true;
             this.Año.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Año.Location = new System.Drawing.Point(12, 340);
+            this.Año.Location = new System.Drawing.Point(12, 492);
             this.Año.Name = "Año";
             this.Año.Size = new System.Drawing.Size(33, 17);
             this.Año.TabIndex = 12;
@@ -141,7 +154,7 @@
             // 
             this.Titulo.AutoSize = true;
             this.Titulo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titulo.Location = new System.Drawing.Point(12, 309);
+            this.Titulo.Location = new System.Drawing.Point(12, 461);
             this.Titulo.Name = "Titulo";
             this.Titulo.Size = new System.Drawing.Size(43, 17);
             this.Titulo.TabIndex = 13;
@@ -150,7 +163,7 @@
             // textCuantia
             // 
             this.textCuantia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCuantia.Location = new System.Drawing.Point(142, 371);
+            this.textCuantia.Location = new System.Drawing.Point(204, 523);
             this.textCuantia.Name = "textCuantia";
             this.textCuantia.Size = new System.Drawing.Size(230, 25);
             this.textCuantia.TabIndex = 6;
@@ -159,7 +172,7 @@
             // 
             this.textAño.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(207)))));
             this.textAño.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textAño.Location = new System.Drawing.Point(142, 340);
+            this.textAño.Location = new System.Drawing.Point(204, 492);
             this.textAño.Name = "textAño";
             this.textAño.Size = new System.Drawing.Size(230, 25);
             this.textAño.TabIndex = 7;
@@ -168,56 +181,157 @@
             // 
             this.textTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(207)))));
             this.textTitulo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTitulo.Location = new System.Drawing.Point(142, 309);
+            this.textTitulo.Location = new System.Drawing.Point(204, 461);
             this.textTitulo.Name = "textTitulo";
             this.textTitulo.Size = new System.Drawing.Size(230, 25);
             this.textTitulo.TabIndex = 8;
+            // 
+            // dateTimePickerP
+            // 
+            this.dateTimePickerP.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerP.Location = new System.Drawing.Point(204, 554);
+            this.dateTimePickerP.Name = "dateTimePickerP";
+            this.dateTimePickerP.Size = new System.Drawing.Size(230, 20);
+            this.dateTimePickerP.TabIndex = 17;
+            // 
+            // dataGridAutoresPublicacion
+            // 
+            this.dataGridAutoresPublicacion.AllowUserToAddRows = false;
+            this.dataGridAutoresPublicacion.AllowUserToDeleteRows = false;
+            this.dataGridAutoresPublicacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridAutoresPublicacion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
+            this.dataGridAutoresPublicacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridAutoresPublicacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.autoID,
+            this.Nombre,
+            this.Apellido});
+            this.dataGridAutoresPublicacion.Location = new System.Drawing.Point(15, 278);
+            this.dataGridAutoresPublicacion.MultiSelect = false;
+            this.dataGridAutoresPublicacion.Name = "dataGridAutoresPublicacion";
+            this.dataGridAutoresPublicacion.ReadOnly = true;
+            this.dataGridAutoresPublicacion.RowHeadersVisible = false;
+            this.dataGridAutoresPublicacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridAutoresPublicacion.Size = new System.Drawing.Size(193, 161);
+            this.dataGridAutoresPublicacion.TabIndex = 18;
+            // 
+            // autoID
+            // 
+            this.autoID.HeaderText = "ID";
+            this.autoID.Name = "autoID";
+            this.autoID.ReadOnly = true;
+            this.autoID.Width = 43;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 69;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            this.Apellido.Width = 69;
+            // 
+            // dataGridAutores
+            // 
+            this.dataGridAutores.AllowUserToAddRows = false;
+            this.dataGridAutores.AllowUserToDeleteRows = false;
+            this.dataGridAutores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridAutores.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
+            this.dataGridAutores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridAutores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDautores,
+            this.NombreAutores,
+            this.ApellidoAutores});
+            this.dataGridAutores.Location = new System.Drawing.Point(245, 278);
+            this.dataGridAutores.MultiSelect = false;
+            this.dataGridAutores.Name = "dataGridAutores";
+            this.dataGridAutores.ReadOnly = true;
+            this.dataGridAutores.RowHeadersVisible = false;
+            this.dataGridAutores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridAutores.Size = new System.Drawing.Size(189, 161);
+            this.dataGridAutores.TabIndex = 18;
+            this.dataGridAutores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridAutores_CellClick);
+            // 
+            // IDautores
+            // 
+            this.IDautores.HeaderText = "ID";
+            this.IDautores.Name = "IDautores";
+            this.IDautores.ReadOnly = true;
+            this.IDautores.Width = 43;
+            // 
+            // NombreAutores
+            // 
+            this.NombreAutores.HeaderText = "Nombre";
+            this.NombreAutores.Name = "NombreAutores";
+            this.NombreAutores.ReadOnly = true;
+            this.NombreAutores.Width = 69;
+            // 
+            // ApellidoAutores
+            // 
+            this.ApellidoAutores.HeaderText = "Apelido";
+            this.ApellidoAutores.Name = "ApellidoAutores";
+            this.ApellidoAutores.ReadOnly = true;
+            this.ApellidoAutores.Width = 67;
+            // 
+            // AñadirAutor
+            // 
+            this.AñadirAutor.Location = new System.Drawing.Point(214, 348);
+            this.AñadirAutor.Name = "AñadirAutor";
+            this.AñadirAutor.Size = new System.Drawing.Size(25, 23);
+            this.AñadirAutor.TabIndex = 19;
+            this.AñadirAutor.Text = "<";
+            this.AñadirAutor.UseVisualStyleBackColor = true;
+            this.AñadirAutor.Click += new System.EventHandler(this.AñadirAutor_Click);
             // 
             // ID
             // 
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.Width = 43;
             // 
             // NombreTitulo
             // 
             this.NombreTitulo.HeaderText = "Titulo";
             this.NombreTitulo.Name = "NombreTitulo";
             this.NombreTitulo.ReadOnly = true;
+            this.NombreTitulo.Width = 58;
             // 
             // NombreAño
             // 
             this.NombreAño.HeaderText = "Año";
             this.NombreAño.Name = "NombreAño";
             this.NombreAño.ReadOnly = true;
+            this.NombreAño.Width = 51;
             // 
             // NombreCuantia
             // 
             this.NombreCuantia.HeaderText = "Cuantía";
             this.NombreCuantia.Name = "NombreCuantia";
             this.NombreCuantia.ReadOnly = true;
+            this.NombreCuantia.Width = 70;
             // 
             // NombreFecha
             // 
-            this.NombreFecha.HeaderText = "Fecha vencimiento";
+            this.NombreFecha.HeaderText = "Vencimiento";
             this.NombreFecha.Name = "NombreFecha";
             this.NombreFecha.ReadOnly = true;
-            // 
-            // dateTimePickerP
-            // 
-            this.dateTimePickerP.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerP.Location = new System.Drawing.Point(142, 402);
-            this.dateTimePickerP.Name = "dateTimePickerP";
-            this.dateTimePickerP.Size = new System.Drawing.Size(230, 20);
-            this.dateTimePickerP.TabIndex = 17;
+            this.NombreFecha.Width = 90;
             // 
             // PatenteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.ClientSize = new System.Drawing.Size(384, 511);
+            this.ClientSize = new System.Drawing.Size(446, 629);
+            this.Controls.Add(this.AñadirAutor);
+            this.Controls.Add(this.dataGridAutores);
+            this.Controls.Add(this.dataGridAutoresPublicacion);
             this.Controls.Add(this.dateTimePickerP);
             this.Controls.Add(this.EliminarAutorBoton);
             this.Controls.Add(this.BorrarBoton);
@@ -234,6 +348,8 @@
             this.Text = "PatenteForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PatenteForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPatente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAutoresPublicacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAutores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,11 +368,20 @@
         private System.Windows.Forms.TextBox textCuantia;
         private System.Windows.Forms.TextBox textAño;
         private System.Windows.Forms.TextBox textTitulo;
+        private System.Windows.Forms.DateTimePicker dateTimePickerP;
+        private System.Windows.Forms.DataGridView dataGridAutoresPublicacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn autoID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.DataGridView dataGridAutores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDautores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreAutores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoAutores;
+        private System.Windows.Forms.Button AñadirAutor;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreTitulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreAño;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCuantia;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreFecha;
-        private System.Windows.Forms.DateTimePicker dateTimePickerP;
     }
 }

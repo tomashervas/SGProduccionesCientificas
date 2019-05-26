@@ -15,23 +15,42 @@ namespace SGPublicacionesCientificas.CapaPresentacion
     public partial class PatenteForm : Form
     {
         public List<Patente> ListaPatentes;
+        public ICollection<int> ListaIDAutoresPublicacion = new List<int>();
+        public ICollection<AutorExterno> ListaAutoresPublicacion = new List<AutorExterno>();
+        public ICollection<AutorExterno> ListaAutoresCompleta = new List<AutorExterno>();
         private bool modificado = false;
         private bool FilaSeleccionada = false;
         public static int IDactualProduccion { get; set; }
+        public AutorExterno AutorSeleccionado = null;
 
         private Patente BuscarSeleccionado()
         {
             int id = (int)dataGridPatente.SelectedRows[0].Cells[0].Value;
-            Patente autor = null;
+            Patente patente = null;
             foreach (Patente a in ListaPatentes)
             {
                 if (a.ID == id)
                 {
-                    autor = a;
+                    patente = a;
                     break;
                 }
             }
-            return autor;
+            return patente;
+        }
+
+        private AutorExterno BuscarAutorSeleccionado()
+        {
+            int id = (int)dataGridAutores.SelectedRows[0].Cells[0].Value;
+            AutorExterno Autor = null;
+            foreach (AutorExterno a in ListaAutoresCompleta)
+            {
+                if (a.ID == id)
+                {
+                    Autor = a;
+                    break;
+                }
+            }
+            return Autor;
         }
 
         private void RellenarDataGrid()
@@ -43,12 +62,23 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             }
         }
 
+        private void RellenarDataAutores(DataGridView data, List<AutorExterno> lista)
+        {
+            data.Rows.Clear();
+            foreach (AutorExterno autor in lista)
+            {
+                data.Rows.Add(autor.ID, autor.Nombre, autor.Apellido);
+            }
+        }
+
         public PatenteForm()
         {
             BBDD.Conectar("root");
-            ListaPatentes = (List<Patente>)PatenteDAO.MostrarTodo();
+            ListaPatentes = (List<Patente>) PatenteDAO.MostrarTodo();
             InitializeComponent();
             RellenarDataGrid();
+            ListaAutoresCompleta = AutorExternoDAO.MostrarExternosInternos();
+            RellenarDataAutores(dataGridAutores, (List<AutorExterno>)ListaAutoresCompleta);
         }
 
         private void RellenarForm()
@@ -132,6 +162,8 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             textAño.Clear();
             textCuantia.Clear();
             dateTimePickerP.Text= DateTime.Today.Date.ToString();
+            dataGridAutoresPublicacion.Rows.Clear();
+
         }
 
         private void BorrarBoton_Click(object sender, EventArgs e)
@@ -165,8 +197,30 @@ namespace SGPublicacionesCientificas.CapaPresentacion
 
         private void dataGridPatente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            ListaAutoresPublicacion.Clear();
+            ListaIDAutoresPublicacion.Clear();
             RellenarForm();
             FilaSeleccionada = true;
+            Patente patente = BuscarSeleccionado();
+            ListaIDAutoresPublicacion = PatenteDAO.MostrarAutoresPublicacion(patente.ID);
+            foreach (int id in ListaIDAutoresPublicacion)
+            {
+                AutorExterno autor = AutorExternoDAO.BuscarAutorPorID(id);
+                ListaAutoresPublicacion.Add(autor);
+                Console.WriteLine(autor.Nombre);
+            }
+            RellenarDataAutores(dataGridAutoresPublicacion, (List<AutorExterno>)ListaAutoresPublicacion);
+        }
+
+        private void dataGridAutores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AutorSeleccionado = BuscarAutorSeleccionado();
+        }
+
+        private void AñadirAutor_Click(object sender, EventArgs e)
+        {
+            ListaAutoresPublicacion.Add(AutorSeleccionado);
+            RellenarDataAutores(dataGridAutoresPublicacion, (List<AutorExterno>)ListaAutoresPublicacion);
         }
     }
 }
