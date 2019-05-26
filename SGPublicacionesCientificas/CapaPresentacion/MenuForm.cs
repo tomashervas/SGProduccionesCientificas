@@ -28,5 +28,11 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             PatenteForm patenteForm = new PatenteForm();
             patenteForm.ShowDialog();
         }
+
+        private void BuscarBoton_Click(object sender, EventArgs e)
+        {
+            Buscar busquedaForm = new Buscar();
+            busquedaForm.ShowDialog();
+        }
     }
 }

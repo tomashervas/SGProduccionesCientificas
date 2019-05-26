@@ -29,7 +29,7 @@ namespace SGPublicacionesCientificas.CapaDAOs
             return ListaAutoresUniversidad;
         }
 
-        public static ICollection<AutorUniversidad> BuscarAutorUniversidadPorNombre(string nombre)
+       public static ICollection<AutorUniversidad> BuscarAutorUniversidadPorNombre(string nombre)
         {
             ICollection<AutorUniversidad> ListaAutoresUniversidad = new List<AutorUniversidad>();
             MySqlCommand comando = new MySqlCommand("SELECT autores.ID,autores.nombre,autores.apellido,autoresuniversidad.DNI,autoresuniversidad.edad,autoresuniversidad.departamento" +

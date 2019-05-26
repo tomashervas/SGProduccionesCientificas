@@ -21,7 +21,8 @@ namespace SGPublicacionesCientificas.CapaPresentacion
         private bool modificado = false;
         private bool FilaSeleccionada = false;
         public static int IDactualProduccion { get; set; }
-        public AutorExterno AutorSeleccionado = null;
+        private AutorExterno AutorSeleccionado = null;
+        private Patente PatenteSeleccionada = null;
 
         private Patente BuscarSeleccionado()
         {
@@ -208,6 +209,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             RellenarForm();
             FilaSeleccionada = true;
             Patente patente = BuscarSeleccionado();
+            PatenteSeleccionada = BuscarSeleccionado();
             ListaIDAutoresPublicacion = PatenteDAO.MostrarAutoresPublicacion(patente.ID);
             foreach (int id in ListaIDAutoresPublicacion)
             {
@@ -242,6 +244,19 @@ namespace SGPublicacionesCientificas.CapaPresentacion
                 {
                     MessageBox.Show("Seleccione primero un autor que añadir");
                 }
+            }
+        }
+
+        private void CalidadBoton_Click(object sender, EventArgs e)
+        {
+            if (PatenteSeleccionada != null)
+            {
+                double resultado = Math.Round(((double)PatenteSeleccionada.FechaVencimiento.Year - DateTime.Today.Year) / (PatenteSeleccionada.FechaVencimiento.Year - PatenteSeleccionada.Año), 2);
+                CalidadLbl.Text = resultado.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione primero una patente");
             }
         }
     }

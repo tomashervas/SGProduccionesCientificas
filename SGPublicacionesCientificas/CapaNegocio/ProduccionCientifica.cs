@@ -8,7 +8,7 @@ using SGPublicacionesCientificas.CapaPresentacion;
 
 namespace SGPublicacionesCientificas.CapaNegocio
 {
-    public abstract class ProduccionCientifica
+    public class ProduccionCientifica
     {
         protected bool Equals(ProduccionCientifica other)
         {
@@ -31,5 +31,17 @@ namespace SGPublicacionesCientificas.CapaNegocio
         public int ID { get; set; }
         public string Titulo { get; set; }
         public int Año { get; set; }
+        public string Tipo { get; set; }
+
+        public ProduccionCientifica(string titulo, int año)
+        {
+            Titulo = titulo;
+            Año = año;
+        }
+
+        public ProduccionCientifica()
+        {
+
+        }
     }
 }

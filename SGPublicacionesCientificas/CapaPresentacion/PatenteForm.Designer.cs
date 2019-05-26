@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridPatente = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreAño = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCuantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EliminarAutorBoton = new System.Windows.Forms.Button();
             this.BorrarBoton = new System.Windows.Forms.Button();
             this.guardarBoton = new System.Windows.Forms.Button();
@@ -49,11 +54,10 @@
             this.NombreAutores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApellidoAutores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AñadirAutor = new System.Windows.Forms.Button();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreAño = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCuantia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CalidadBoton = new System.Windows.Forms.Button();
+            this.CalidadLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPatente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAutoresPublicacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAutores)).BeginInit();
@@ -84,11 +88,46 @@
             this.dataGridPatente.TabIndex = 1;
             this.dataGridPatente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPatente_CellClick);
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 43;
+            // 
+            // NombreTitulo
+            // 
+            this.NombreTitulo.HeaderText = "Titulo";
+            this.NombreTitulo.Name = "NombreTitulo";
+            this.NombreTitulo.ReadOnly = true;
+            this.NombreTitulo.Width = 58;
+            // 
+            // NombreAño
+            // 
+            this.NombreAño.HeaderText = "Año";
+            this.NombreAño.Name = "NombreAño";
+            this.NombreAño.ReadOnly = true;
+            this.NombreAño.Width = 51;
+            // 
+            // NombreCuantia
+            // 
+            this.NombreCuantia.HeaderText = "Cuantía";
+            this.NombreCuantia.Name = "NombreCuantia";
+            this.NombreCuantia.ReadOnly = true;
+            this.NombreCuantia.Width = 70;
+            // 
+            // NombreFecha
+            // 
+            this.NombreFecha.HeaderText = "Vencimiento";
+            this.NombreFecha.Name = "NombreFecha";
+            this.NombreFecha.ReadOnly = true;
+            this.NombreFecha.Width = 90;
+            // 
             // EliminarAutorBoton
             // 
             this.EliminarAutorBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
             this.EliminarAutorBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarAutorBoton.Location = new System.Drawing.Point(257, 585);
+            this.EliminarAutorBoton.Location = new System.Drawing.Point(257, 611);
             this.EliminarAutorBoton.Name = "EliminarAutorBoton";
             this.EliminarAutorBoton.Size = new System.Drawing.Size(115, 32);
             this.EliminarAutorBoton.TabIndex = 14;
@@ -100,7 +139,7 @@
             // 
             this.BorrarBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
             this.BorrarBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BorrarBoton.Location = new System.Drawing.Point(118, 585);
+            this.BorrarBoton.Location = new System.Drawing.Point(118, 611);
             this.BorrarBoton.Name = "BorrarBoton";
             this.BorrarBoton.Size = new System.Drawing.Size(133, 32);
             this.BorrarBoton.TabIndex = 15;
@@ -112,7 +151,7 @@
             // 
             this.guardarBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
             this.guardarBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardarBoton.Location = new System.Drawing.Point(12, 585);
+            this.guardarBoton.Location = new System.Drawing.Point(12, 611);
             this.guardarBoton.Name = "guardarBoton";
             this.guardarBoton.Size = new System.Drawing.Size(100, 32);
             this.guardarBoton.TabIndex = 16;
@@ -124,7 +163,7 @@
             // 
             this.FechaVencimiento.AutoSize = true;
             this.FechaVencimiento.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FechaVencimiento.Location = new System.Drawing.Point(12, 554);
+            this.FechaVencimiento.Location = new System.Drawing.Point(12, 580);
             this.FechaVencimiento.Name = "FechaVencimiento";
             this.FechaVencimiento.Size = new System.Drawing.Size(132, 17);
             this.FechaVencimiento.TabIndex = 10;
@@ -134,7 +173,7 @@
             // 
             this.cuantia.AutoSize = true;
             this.cuantia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuantia.Location = new System.Drawing.Point(12, 523);
+            this.cuantia.Location = new System.Drawing.Point(12, 549);
             this.cuantia.Name = "cuantia";
             this.cuantia.Size = new System.Drawing.Size(58, 17);
             this.cuantia.TabIndex = 11;
@@ -144,7 +183,7 @@
             // 
             this.Año.AutoSize = true;
             this.Año.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Año.Location = new System.Drawing.Point(12, 492);
+            this.Año.Location = new System.Drawing.Point(12, 518);
             this.Año.Name = "Año";
             this.Año.Size = new System.Drawing.Size(33, 17);
             this.Año.TabIndex = 12;
@@ -154,7 +193,7 @@
             // 
             this.Titulo.AutoSize = true;
             this.Titulo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titulo.Location = new System.Drawing.Point(12, 461);
+            this.Titulo.Location = new System.Drawing.Point(12, 487);
             this.Titulo.Name = "Titulo";
             this.Titulo.Size = new System.Drawing.Size(43, 17);
             this.Titulo.TabIndex = 13;
@@ -163,7 +202,7 @@
             // textCuantia
             // 
             this.textCuantia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCuantia.Location = new System.Drawing.Point(204, 523);
+            this.textCuantia.Location = new System.Drawing.Point(204, 549);
             this.textCuantia.Name = "textCuantia";
             this.textCuantia.Size = new System.Drawing.Size(230, 25);
             this.textCuantia.TabIndex = 6;
@@ -172,7 +211,7 @@
             // 
             this.textAño.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(207)))));
             this.textAño.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textAño.Location = new System.Drawing.Point(204, 492);
+            this.textAño.Location = new System.Drawing.Point(204, 518);
             this.textAño.Name = "textAño";
             this.textAño.Size = new System.Drawing.Size(230, 25);
             this.textAño.TabIndex = 7;
@@ -181,7 +220,7 @@
             // 
             this.textTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(207)))));
             this.textTitulo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTitulo.Location = new System.Drawing.Point(204, 461);
+            this.textTitulo.Location = new System.Drawing.Point(204, 487);
             this.textTitulo.Name = "textTitulo";
             this.textTitulo.Size = new System.Drawing.Size(230, 25);
             this.textTitulo.TabIndex = 8;
@@ -190,7 +229,7 @@
             // 
             this.dateTimePickerP.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerP.Location = new System.Drawing.Point(204, 554);
+            this.dateTimePickerP.Location = new System.Drawing.Point(204, 580);
             this.dateTimePickerP.Name = "dateTimePickerP";
             this.dateTimePickerP.Size = new System.Drawing.Size(230, 20);
             this.dateTimePickerP.TabIndex = 17;
@@ -288,47 +327,56 @@
             this.AñadirAutor.UseVisualStyleBackColor = true;
             this.AñadirAutor.Click += new System.EventHandler(this.AñadirAutor_Click);
             // 
-            // ID
+            // label1
             // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 43;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 258);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 17);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Autores patente";
             // 
-            // NombreTitulo
+            // label2
             // 
-            this.NombreTitulo.HeaderText = "Titulo";
-            this.NombreTitulo.Name = "NombreTitulo";
-            this.NombreTitulo.ReadOnly = true;
-            this.NombreTitulo.Width = 58;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(242, 258);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 17);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Todos los autores";
             // 
-            // NombreAño
+            // CalidadBoton
             // 
-            this.NombreAño.HeaderText = "Año";
-            this.NombreAño.Name = "NombreAño";
-            this.NombreAño.ReadOnly = true;
-            this.NombreAño.Width = 51;
+            this.CalidadBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
+            this.CalidadBoton.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CalidadBoton.Location = new System.Drawing.Point(15, 446);
+            this.CalidadBoton.Name = "CalidadBoton";
+            this.CalidadBoton.Size = new System.Drawing.Size(75, 31);
+            this.CalidadBoton.TabIndex = 20;
+            this.CalidadBoton.Text = "Calidad";
+            this.CalidadBoton.UseVisualStyleBackColor = false;
+            this.CalidadBoton.Click += new System.EventHandler(this.CalidadBoton_Click);
             // 
-            // NombreCuantia
+            // CalidadLbl
             // 
-            this.NombreCuantia.HeaderText = "Cuantía";
-            this.NombreCuantia.Name = "NombreCuantia";
-            this.NombreCuantia.ReadOnly = true;
-            this.NombreCuantia.Width = 70;
-            // 
-            // NombreFecha
-            // 
-            this.NombreFecha.HeaderText = "Vencimiento";
-            this.NombreFecha.Name = "NombreFecha";
-            this.NombreFecha.ReadOnly = true;
-            this.NombreFecha.Width = 90;
+            this.CalidadLbl.AutoSize = true;
+            this.CalidadLbl.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CalidadLbl.Location = new System.Drawing.Point(102, 450);
+            this.CalidadLbl.Name = "CalidadLbl";
+            this.CalidadLbl.Size = new System.Drawing.Size(20, 22);
+            this.CalidadLbl.TabIndex = 21;
+            this.CalidadLbl.Text = "_";
             // 
             // PatenteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.ClientSize = new System.Drawing.Size(446, 629);
+            this.ClientSize = new System.Drawing.Size(446, 658);
+            this.Controls.Add(this.CalidadLbl);
+            this.Controls.Add(this.CalidadBoton);
             this.Controls.Add(this.AñadirAutor);
             this.Controls.Add(this.dataGridAutores);
             this.Controls.Add(this.dataGridAutoresPublicacion);
@@ -339,6 +387,8 @@
             this.Controls.Add(this.FechaVencimiento);
             this.Controls.Add(this.cuantia);
             this.Controls.Add(this.Año);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Titulo);
             this.Controls.Add(this.textCuantia);
             this.Controls.Add(this.textAño);
@@ -383,5 +433,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreAño;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCuantia;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreFecha;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button CalidadBoton;
+        private System.Windows.Forms.Label CalidadLbl;
     }
 }

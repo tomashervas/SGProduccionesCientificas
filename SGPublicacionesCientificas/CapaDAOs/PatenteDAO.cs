@@ -43,26 +43,6 @@ namespace SGPublicacionesCientificas.CapaDAOs
             return Lista;
         }
 
-        /* public static ICollection<AutorUniversidad> BuscarAutorUniversidadPorNombre(string nombre)
-         {
-             ICollection<AutorUniversidad> ListaAutoresUniversidad = new List<AutorUniversidad>();
-             MySqlCommand comando = new MySqlCommand("SELECT autores.ID,autores.nombre,autores.apellido,autoresuniversidad.DNI,autoresuniversidad.edad,autoresuniversidad.departamento" +
-                                                     " FROM autores INNER JOIN autoresuniversidad ON autores.ID=autoresuniversidad.id_autor WHERE autores.nombre=@nombre;");
-             comando.Parameters.AddWithValue("@nombre", nombre);
-             MySqlDataReader reader = BBDD.ExecuteQuery(comando);
-             if (reader.HasRows)
-             {
-                 while (reader.Read())
-                 {
-                     AutorUniversidad autor = new AutorUniversidad(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(4), reader.GetString(5));
-                     autor.ID = reader.GetInt32(0);
-                     ListaAutoresUniversidad.Add(autor);
-                 }
-             }
-             reader.Close();
-             return ListaAutoresUniversidad;
-         }*/
-
         public static bool ActualizarRegistro(Patente patente)
         {
             MySqlCommand comando = new MySqlCommand("UPDATE produccioncientifica SET titulo=@titulo, año=@año WHERE ID=@ID;" +

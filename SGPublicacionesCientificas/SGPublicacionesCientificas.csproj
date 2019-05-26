@@ -66,6 +66,7 @@
     <Compile Include="CapaDAOs\AutorUniversidadDAO.cs" />
     <Compile Include="CapaDAOs\BBDD.cs" />
     <Compile Include="CapaDAOs\PatenteDAO.cs" />
+    <Compile Include="CapaDAOs\ProduccionDAO.cs" />
     <Compile Include="CapaNegocio\ArticuloCientifico.cs" />
     <Compile Include="CapaNegocio\ArticuloConferencia.cs" />
     <Compile Include="CapaNegocio\ArticuloRevista.cs" />
@@ -92,6 +93,12 @@
     <Compile Include="CapaPresentacion\AutorUniForm.Designer.cs">
       <DependentUpon>AutorUniForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\Buscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\Buscar.Designer.cs">
+      <DependentUpon>Buscar.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\AutorUniForm.resx">
       <DependentUpon>AutorUniForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\Buscar.resx">
+      <DependentUpon>Buscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
