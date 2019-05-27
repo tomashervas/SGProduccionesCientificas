@@ -139,7 +139,6 @@
             this.radioRevista.Name = "radioRevista";
             this.radioRevista.Size = new System.Drawing.Size(80, 17);
             this.radioRevista.TabIndex = 3;
-            this.radioRevista.TabStop = true;
             this.radioRevista.Text = "Art. Revista";
             this.radioRevista.UseVisualStyleBackColor = true;
             // 
@@ -150,7 +149,6 @@
             this.radioConferencia.Name = "radioConferencia";
             this.radioConferencia.Size = new System.Drawing.Size(101, 17);
             this.radioConferencia.TabIndex = 2;
-            this.radioConferencia.TabStop = true;
             this.radioConferencia.Text = "Art. Conferencia";
             this.radioConferencia.UseVisualStyleBackColor = true;
             // 
@@ -161,13 +159,13 @@
             this.radioPatente.Name = "radioPatente";
             this.radioPatente.Size = new System.Drawing.Size(62, 17);
             this.radioPatente.TabIndex = 1;
-            this.radioPatente.TabStop = true;
             this.radioPatente.Text = "Patente";
             this.radioPatente.UseVisualStyleBackColor = true;
             // 
             // radioTodos
             // 
             this.radioTodos.AutoSize = true;
+            this.radioTodos.Checked = true;
             this.radioTodos.Location = new System.Drawing.Point(7, 20);
             this.radioTodos.Name = "radioTodos";
             this.radioTodos.Size = new System.Drawing.Size(55, 17);

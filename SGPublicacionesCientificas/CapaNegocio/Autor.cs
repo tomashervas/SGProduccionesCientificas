@@ -8,11 +8,10 @@ using SGPublicacionesCientificas.CapaPresentacion;
 
 namespace SGPublicacionesCientificas.CapaNegocio
 {
+    //clase autor abstracta de la que heredan las clases autorUniverdidad y autorExterno
     public abstract class Autor
     {
-        
-        protected static int ContadorAutor = (AutorForm.IDactualAutor)+1;
-        public int ID { get; set; } = ContadorAutor;
+        public int ID { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public bool deUniversidad { get; set; }

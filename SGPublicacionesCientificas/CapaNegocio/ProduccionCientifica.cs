@@ -8,6 +8,8 @@ using SGPublicacionesCientificas.CapaPresentacion;
 
 namespace SGPublicacionesCientificas.CapaNegocio
 {
+    //Esta clase no la he hecho abstracta ya que para algún método como el de búsque de producciones científicas me interesa poder
+    //instanciar esta clase
     public class ProduccionCientifica
     {
         protected bool Equals(ProduccionCientifica other)

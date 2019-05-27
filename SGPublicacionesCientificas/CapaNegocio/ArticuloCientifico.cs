@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SGPublicacionesCientificas.CapaNegocio
 {
-    public abstract class ArticuloCientifico : ProduccionCientifica
+    public class ArticuloCientifico : ProduccionCientifica
     {
         public int Paginas { get; set; }
         public int Citas { get; set; }

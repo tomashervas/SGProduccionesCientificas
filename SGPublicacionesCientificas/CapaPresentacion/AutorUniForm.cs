@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -15,9 +16,15 @@ namespace SGPublicacionesCientificas.CapaPresentacion
     public partial class AutorUniForm : Form
     {
         public List<AutorUniversidad> autoresUni;
-        private bool modificado = false;
         private bool FilaSeleccionada = false;
+        public static int IDactualAutor { get; set; }
+        private ICollection<ProduccionCientifica> ListaProducciones = new List<ProduccionCientifica>();
+        private string nombre;
 
+        /// <summary>
+        /// Metodo que permite buscar un autor de universidad al hacer click en el datagrid
+        /// </summary>
+        /// <returns></returns>
         private AutorUniversidad BuscarSeleccionado()
         {
             int id = (int)dataGridAutoresUni.SelectedRows[0].Cells[0].Value;
@@ -35,6 +42,9 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             return autor;
         }
 
+        /// <summary>
+        /// Metodo que rellena el datagrid a partir de una lsita de autores de universidad
+        /// </summary>
         private void RellenarDataGrid()
         {
             dataGridAutoresUni.Rows.Clear();
@@ -59,6 +69,9 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             BBDD.Desconectar();
         }
 
+        /// <summary>
+        /// Método que permite rellenar los datos del formulario y así modificarlo
+        /// </summary>
         private void RellenarForm()
         {
             AutorUniversidad autor = new AutorUniversidad();
@@ -70,14 +83,21 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             textEdad.Text = autor.Edad.ToString();
         }
 
+        
         private void dataGridAutoresUni_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             RellenarForm();
             FilaSeleccionada = true;
+            nombre = BuscarSeleccionado().Nombre;
+            Console.WriteLine(nombre);
         }
 
+        /// <summary>
+        /// Método para insertar un nuevo autor
+        /// </summary>
         private void InsertarAutorUni()
         {
+            IDactualAutor = AutorExternoDAO.IDactual();
             AutorUniversidad autor = new AutorUniversidad();
             if (textNombreUni.Text.Trim() == "" || textApellidoUni.Text.Trim() == "" || textEdad.Text.Trim() == "")
             {
@@ -100,6 +120,9 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             }
         }
 
+        /// <summary>
+        /// Metodo para eliminar un autor de la base de datos y de la memoria del programa
+        /// </summary>
         private void EliminarAutor()
         {
             AutorUniversidad autor = BuscarSeleccionado();
@@ -110,6 +133,9 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             //Console.WriteLine(autoresUni.Count());
         }
 
+        /// <summary>
+        /// Método que a través de DAO permite modificar un autor en la bbdd y en la memoria
+        /// </summary>
         private void ModificarAutorUni()
         {
             AutorUniversidad autor = BuscarSeleccionado();
@@ -143,6 +169,9 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             }
         }
 
+        /// <summary>
+        /// Metodo para borrar el formulario
+        /// </summary>
         private void BorrarForm()
         {
             textNombreUni.Clear();
@@ -175,6 +204,28 @@ namespace SGPublicacionesCientificas.CapaPresentacion
                 MessageBox.Show("Seleccione primero un autor");
             }
             
+        }
+
+        /// <summary>
+        /// Método que comprueba si el texto introducido es un número entre 1 y 149
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textEdad_Validating(object sender, CancelEventArgs e)
+        {
+            int nuevaEdad = -1;
+            bool resultado = int.TryParse(textEdad.Text, out nuevaEdad);
+            if (resultado && nuevaEdad > 0 && nuevaEdad < 150)
+            {
+                textEdad.Text = nuevaEdad.ToString();
+                e.Cancel = false;
+                errorEdad.SetError(textEdad,"");
+            }
+            else
+            {
+                errorEdad.SetError(textEdad, "El valor debe ser un número entre 1 y 149");
+                e.Cancel = true;
+            }
         }
     }
 }

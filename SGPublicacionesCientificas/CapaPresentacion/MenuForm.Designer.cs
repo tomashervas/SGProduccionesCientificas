@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BuscarBoton = new System.Windows.Forms.Button();
             this.BotonRevista = new System.Windows.Forms.Button();
             this.BotonConferencia = new System.Windows.Forms.Button();
             this.BotonPatente = new System.Windows.Forms.Button();
             this.BotonAutor = new System.Windows.Forms.Button();
-            this.BuscarBoton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +47,18 @@
             this.panel1.Size = new System.Drawing.Size(397, 233);
             this.panel1.TabIndex = 1;
             // 
+            // BuscarBoton
+            // 
+            this.BuscarBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(133)))), ((int)(((byte)(109)))));
+            this.BuscarBoton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuscarBoton.Location = new System.Drawing.Point(60, 114);
+            this.BuscarBoton.Name = "BuscarBoton";
+            this.BuscarBoton.Size = new System.Drawing.Size(287, 73);
+            this.BuscarBoton.TabIndex = 0;
+            this.BuscarBoton.Text = "Buscar producción";
+            this.BuscarBoton.UseVisualStyleBackColor = false;
+            this.BuscarBoton.Click += new System.EventHandler(this.BuscarBoton_Click);
+            // 
             // BotonRevista
             // 
             this.BotonRevista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(133)))), ((int)(((byte)(109)))));
@@ -56,6 +69,7 @@
             this.BotonRevista.TabIndex = 0;
             this.BotonRevista.Text = "Artículo de revista";
             this.BotonRevista.UseVisualStyleBackColor = false;
+            this.BotonRevista.Click += new System.EventHandler(this.BotonRevista_Click);
             // 
             // BotonConferencia
             // 
@@ -67,6 +81,7 @@
             this.BotonConferencia.TabIndex = 0;
             this.BotonConferencia.Text = "Artículo de conferencia";
             this.BotonConferencia.UseVisualStyleBackColor = false;
+            this.BotonConferencia.Click += new System.EventHandler(this.BotonConferencia_Click);
             // 
             // BotonPatente
             // 
@@ -92,17 +107,16 @@
             this.BotonAutor.UseVisualStyleBackColor = false;
             this.BotonAutor.Click += new System.EventHandler(this.BotonAutor_Click);
             // 
-            // BuscarBoton
+            // label1
             // 
-            this.BuscarBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(133)))), ((int)(((byte)(109)))));
-            this.BuscarBoton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuscarBoton.Location = new System.Drawing.Point(60, 114);
-            this.BuscarBoton.Name = "BuscarBoton";
-            this.BuscarBoton.Size = new System.Drawing.Size(287, 73);
-            this.BuscarBoton.TabIndex = 0;
-            this.BuscarBoton.Text = "Buscar producción";
-            this.BuscarBoton.UseVisualStyleBackColor = false;
-            this.BuscarBoton.Click += new System.EventHandler(this.BuscarBoton_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
+            this.label1.Location = new System.Drawing.Point(27, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(332, 24);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Gestor publicaciones científicas";
             // 
             // MenuForm
             // 
@@ -110,6 +124,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(384, 511);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.BotonAutor);
             this.Controls.Add(this.BotonPatente);
             this.Controls.Add(this.BotonConferencia);
@@ -119,6 +134,7 @@
             this.Text = "MenuForm";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -129,5 +145,6 @@
         private System.Windows.Forms.Button BotonPatente;
         private System.Windows.Forms.Button BotonAutor;
         private System.Windows.Forms.Button BuscarBoton;
+        private System.Windows.Forms.Label label1;
     }
 }

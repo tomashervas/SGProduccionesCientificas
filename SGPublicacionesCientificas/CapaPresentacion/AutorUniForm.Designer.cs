@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridAutoresUni = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,7 +49,9 @@
             this.guardarBoton = new System.Windows.Forms.Button();
             this.BorrarBoton = new System.Windows.Forms.Button();
             this.EliminarAutorBoton = new System.Windows.Forms.Button();
+            this.errorEdad = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAutoresUni)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorEdad)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridAutoresUni
@@ -115,7 +118,7 @@
             // 
             this.textNombreUni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(207)))));
             this.textNombreUni.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNombreUni.Location = new System.Drawing.Point(142, 309);
+            this.textNombreUni.Location = new System.Drawing.Point(142, 323);
             this.textNombreUni.Name = "textNombreUni";
             this.textNombreUni.Size = new System.Drawing.Size(230, 25);
             this.textNombreUni.TabIndex = 1;
@@ -124,7 +127,7 @@
             // 
             this.NombreUni.AutoSize = true;
             this.NombreUni.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombreUni.Location = new System.Drawing.Point(12, 309);
+            this.NombreUni.Location = new System.Drawing.Point(12, 323);
             this.NombreUni.Name = "NombreUni";
             this.NombreUni.Size = new System.Drawing.Size(60, 17);
             this.NombreUni.TabIndex = 2;
@@ -134,7 +137,7 @@
             // 
             this.textApellidoUni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(223)))), ((int)(((byte)(207)))));
             this.textApellidoUni.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textApellidoUni.Location = new System.Drawing.Point(142, 340);
+            this.textApellidoUni.Location = new System.Drawing.Point(142, 354);
             this.textApellidoUni.Name = "textApellidoUni";
             this.textApellidoUni.Size = new System.Drawing.Size(230, 25);
             this.textApellidoUni.TabIndex = 1;
@@ -143,7 +146,7 @@
             // 
             this.ApellidoUni.AutoSize = true;
             this.ApellidoUni.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApellidoUni.Location = new System.Drawing.Point(12, 340);
+            this.ApellidoUni.Location = new System.Drawing.Point(12, 354);
             this.ApellidoUni.Name = "ApellidoUni";
             this.ApellidoUni.Size = new System.Drawing.Size(66, 17);
             this.ApellidoUni.TabIndex = 2;
@@ -152,7 +155,7 @@
             // textDepartamentoUni
             // 
             this.textDepartamentoUni.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDepartamentoUni.Location = new System.Drawing.Point(142, 371);
+            this.textDepartamentoUni.Location = new System.Drawing.Point(142, 385);
             this.textDepartamentoUni.Name = "textDepartamentoUni";
             this.textDepartamentoUni.Size = new System.Drawing.Size(230, 25);
             this.textDepartamentoUni.TabIndex = 1;
@@ -161,7 +164,7 @@
             // 
             this.DepartamentoUni.AutoSize = true;
             this.DepartamentoUni.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DepartamentoUni.Location = new System.Drawing.Point(12, 371);
+            this.DepartamentoUni.Location = new System.Drawing.Point(12, 385);
             this.DepartamentoUni.Name = "DepartamentoUni";
             this.DepartamentoUni.Size = new System.Drawing.Size(101, 17);
             this.DepartamentoUni.TabIndex = 2;
@@ -170,7 +173,7 @@
             // textDNI
             // 
             this.textDNI.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDNI.Location = new System.Drawing.Point(142, 402);
+            this.textDNI.Location = new System.Drawing.Point(142, 416);
             this.textDNI.Name = "textDNI";
             this.textDNI.Size = new System.Drawing.Size(230, 25);
             this.textDNI.TabIndex = 1;
@@ -179,7 +182,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 402);
+            this.label1.Location = new System.Drawing.Point(12, 416);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 17);
             this.label1.TabIndex = 2;
@@ -188,16 +191,17 @@
             // textEdad
             // 
             this.textEdad.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdad.Location = new System.Drawing.Point(142, 433);
+            this.textEdad.Location = new System.Drawing.Point(142, 447);
             this.textEdad.Name = "textEdad";
             this.textEdad.Size = new System.Drawing.Size(230, 25);
             this.textEdad.TabIndex = 1;
+            this.textEdad.Validating += new System.ComponentModel.CancelEventHandler(this.textEdad_Validating);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 433);
+            this.label2.Location = new System.Drawing.Point(12, 447);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 17);
             this.label2.TabIndex = 2;
@@ -207,7 +211,7 @@
             // 
             this.guardarBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
             this.guardarBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardarBoton.Location = new System.Drawing.Point(12, 467);
+            this.guardarBoton.Location = new System.Drawing.Point(12, 481);
             this.guardarBoton.Name = "guardarBoton";
             this.guardarBoton.Size = new System.Drawing.Size(100, 32);
             this.guardarBoton.TabIndex = 3;
@@ -219,7 +223,7 @@
             // 
             this.BorrarBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
             this.BorrarBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BorrarBoton.Location = new System.Drawing.Point(118, 467);
+            this.BorrarBoton.Location = new System.Drawing.Point(118, 481);
             this.BorrarBoton.Name = "BorrarBoton";
             this.BorrarBoton.Size = new System.Drawing.Size(133, 32);
             this.BorrarBoton.TabIndex = 3;
@@ -231,7 +235,7 @@
             // 
             this.EliminarAutorBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(176)))), ((int)(((byte)(174)))));
             this.EliminarAutorBoton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarAutorBoton.Location = new System.Drawing.Point(257, 467);
+            this.EliminarAutorBoton.Location = new System.Drawing.Point(257, 481);
             this.EliminarAutorBoton.Name = "EliminarAutorBoton";
             this.EliminarAutorBoton.Size = new System.Drawing.Size(115, 32);
             this.EliminarAutorBoton.TabIndex = 3;
@@ -239,12 +243,16 @@
             this.EliminarAutorBoton.UseVisualStyleBackColor = false;
             this.EliminarAutorBoton.Click += new System.EventHandler(this.EliminarAutorBoton_Click);
             // 
+            // errorEdad
+            // 
+            this.errorEdad.ContainerControl = this;
+            // 
             // AutorUniForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.ClientSize = new System.Drawing.Size(384, 511);
+            this.ClientSize = new System.Drawing.Size(384, 525);
             this.Controls.Add(this.EliminarAutorBoton);
             this.Controls.Add(this.BorrarBoton);
             this.Controls.Add(this.guardarBoton);
@@ -263,6 +271,7 @@
             this.Text = "AutorUniForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AutorUniForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAutoresUni)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorEdad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,5 +299,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
         private System.Windows.Forms.DataGridViewTextBoxColumn Edad;
         private System.Windows.Forms.Button EliminarAutorBoton;
+        private System.Windows.Forms.ErrorProvider errorEdad;
     }
 }

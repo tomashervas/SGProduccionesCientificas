@@ -47,7 +47,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
         /// Metodo para encontrar por id un autor  dentro de una lista
         /// </summary>
         /// <returns>Devuelve un objeto de tipo AutorExterno</returns>
-        private AutorExterno BuscarAutorSeleccionado()
+        public AutorExterno BuscarAutorSeleccionado()
         {
             int id = (int)dataGridAutores.SelectedRows[0].Cells[0].Value;
             AutorExterno Autor = null;
@@ -80,7 +80,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
         /// </summary>
         /// <param name="data">Objeto de tipo dataGridView</param>
         /// <param name="lista">Lista de autorExterno</param>
-        private void RellenarDataAutores(DataGridView data, List<AutorExterno> lista)
+        public static void RellenarDataAutores(DataGridView data, List<AutorExterno> lista)
         {
             data.Rows.Clear();
             foreach (AutorExterno autor in lista)
@@ -89,7 +89,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             }
         }
 
-
+        
         public PatenteForm()
         {
             BBDD.Conectar("tomas");
@@ -211,7 +211,6 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             dateTimePickerP.Text= DateTime.Today.Date.ToString();
             dataGridAutoresPublicacion.Rows.Clear();
             ListaAutoresPublicacion.Clear();
-
         }
 
         private void BorrarBoton_Click(object sender, EventArgs e)
@@ -234,7 +233,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
                 if (respuesta == DialogResult.Yes)
                 {
                     Eliminar();
-                    MessageBox.Show("La producción se ha modificado correctamente");
+                    MessageBox.Show("La producción se ha eliminado correctamente");
                 }
             }
             else
@@ -322,6 +321,43 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             else
             {
                 MessageBox.Show("Seleccione primero una patente");
+            }
+        }
+
+
+        private void textAño_Validating(object sender, CancelEventArgs e)
+        {
+            int nuevoAño = -1;
+            bool resultado = int.TryParse(textAño.Text, out nuevoAño);
+            if (resultado && nuevoAño > 1900 && nuevoAño < 2101)
+            {
+                textAño.Text = nuevoAño.ToString();
+                e.Cancel = false;
+                errorAño.SetError(textAño, "");
+
+            }
+            else
+            {
+                errorAño.SetError(textAño, "El valor debe ser un número entre 1900 y 2100");
+                e.Cancel = true;
+            }
+        }
+
+        private void textCuantia_Validating(object sender, CancelEventArgs e)
+        {
+            int nuevaCuatia = -1;
+            bool resultado = int.TryParse(textCuantia.Text, out nuevaCuatia);
+            if (resultado && nuevaCuatia > 0)
+            {
+                textCuantia.Text = nuevaCuatia.ToString();
+                e.Cancel = false;
+                errorAño.SetError(textCuantia, "");
+
+            }
+            else
+            {
+                errorAño.SetError(textCuantia, "El valor debe ser un número positivo");
+                e.Cancel = true;
             }
         }
     }

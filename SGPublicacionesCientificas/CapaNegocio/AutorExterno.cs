@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SGPublicacionesCientificas.CapaPresentacion;
 
 namespace SGPublicacionesCientificas.CapaNegocio
 {
@@ -12,12 +13,11 @@ namespace SGPublicacionesCientificas.CapaNegocio
         {
             Nombre = nombre;
             Apellido = apellido;
-            ContadorAutor = ContadorAutor + 1;
             deUniversidad = false;
         }
         public AutorExterno()
         {
-            ContadorAutor = ContadorAutor + 1;
+            ID = AutorExtForm.IDactualAutor + 1;
             deUniversidad = false;
         }
     }

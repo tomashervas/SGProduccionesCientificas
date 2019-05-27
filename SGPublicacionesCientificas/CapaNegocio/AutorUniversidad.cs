@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SGPublicacionesCientificas.CapaPresentacion;
 
 namespace SGPublicacionesCientificas.CapaNegocio
 {
@@ -19,14 +20,13 @@ namespace SGPublicacionesCientificas.CapaNegocio
             DNI = dni;
             Edad = edad;
             Departamento = departamento;
-            ContadorAutor = ContadorAutor + 1;
             deUniversidad = true;
             
         }
 
         public AutorUniversidad()
         {
-            ContadorAutor = ContadorAutor + 1;
+            ID = AutorUniForm.IDactualAutor + 1;
             deUniversidad = true;
         }
 

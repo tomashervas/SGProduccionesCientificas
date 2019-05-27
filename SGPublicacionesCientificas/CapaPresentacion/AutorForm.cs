@@ -18,10 +18,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
 
         public AutorForm()
         {
-            BBDD.Conectar("tomas");
             InitializeComponent();
-            IDactualAutor = AutorExternoDAO.IDactual();
-            BBDD.Desconectar();
         }
 
         private void BotonUni_Click(object sender, EventArgs e)

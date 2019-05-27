@@ -15,8 +15,8 @@ namespace SGPublicacionesCientificas.CapaPresentacion
     public partial class AutorExtForm : Form
     {
         public List<AutorExterno> autoresExt;
-        private bool modificado = false;
         private bool FilaSeleccionada = false;
+        public static int IDactualAutor { get; set; }
 
         private AutorExterno BuscarSeleccionado()
         {
@@ -62,6 +62,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
 
         private void InsertarAutor()
         {
+            IDactualAutor = AutorExternoDAO.IDactual();
             AutorExterno autor = new AutorExterno();
             if (textNombre.Text.Trim() == "" || textApellido.Text.Trim() == "" )
             {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridPatente = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,9 +59,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.CalidadBoton = new System.Windows.Forms.Button();
             this.CalidadLbl = new System.Windows.Forms.Label();
+            this.errorAño = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorCuantia = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPatente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAutoresPublicacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAutores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAño)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCuantia)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridPatente
@@ -206,6 +211,7 @@
             this.textCuantia.Name = "textCuantia";
             this.textCuantia.Size = new System.Drawing.Size(230, 25);
             this.textCuantia.TabIndex = 6;
+            this.textCuantia.Validating += new System.ComponentModel.CancelEventHandler(this.textCuantia_Validating);
             // 
             // textAño
             // 
@@ -215,6 +221,7 @@
             this.textAño.Name = "textAño";
             this.textAño.Size = new System.Drawing.Size(230, 25);
             this.textAño.TabIndex = 7;
+            this.textAño.Validating += new System.ComponentModel.CancelEventHandler(this.textAño_Validating);
             // 
             // textTitulo
             // 
@@ -369,6 +376,14 @@
             this.CalidadLbl.TabIndex = 21;
             this.CalidadLbl.Text = "_";
             // 
+            // errorAño
+            // 
+            this.errorAño.ContainerControl = this;
+            // 
+            // errorCuantia
+            // 
+            this.errorCuantia.ContainerControl = this;
+            // 
             // PatenteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,6 +415,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPatente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAutoresPublicacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAutores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAño)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCuantia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,5 +454,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button CalidadBoton;
         private System.Windows.Forms.Label CalidadLbl;
+        private System.Windows.Forms.ErrorProvider errorAño;
+        private System.Windows.Forms.ErrorProvider errorCuantia;
     }
 }

@@ -34,5 +34,16 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             Buscar busquedaForm = new Buscar();
             busquedaForm.ShowDialog();
         }
+
+        private void BotonConferencia_Click(object sender, EventArgs e)
+        {
+            ConferenciaForm conferenciaForm = new ConferenciaForm();
+            conferenciaForm.ShowDialog();
+        }
+
+        private void BotonRevista_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción, disculpe las molestias");
+        }
     }
 }
