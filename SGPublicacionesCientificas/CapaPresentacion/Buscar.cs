@@ -22,7 +22,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
 
         public Buscar()
         {
-            BBDD.Conectar("root");
+            BBDD.Conectar("tomas");
             InitializeComponent();
         }
 
@@ -69,6 +69,11 @@ namespace SGPublicacionesCientificas.CapaPresentacion
                 ListaProducciones = ProduccionDAO.BuscarProduccionPorTipo("revista", nombre);
                 RellenarDataGrid();
             }
+        }
+
+        private void Buscar_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            BBDD.Desconectar();
         }
     }
 }

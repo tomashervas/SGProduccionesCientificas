@@ -46,7 +46,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
    
         public AutorUniForm()
         {
-            BBDD.Conectar("root");
+            BBDD.Conectar("tomas");
             autoresUni = (List<AutorUniversidad>)AutorUniversidadDAO.MostrarTodo();
             InitializeComponent();
             //dataGridAutoresUni.DataSource = autoresUni;

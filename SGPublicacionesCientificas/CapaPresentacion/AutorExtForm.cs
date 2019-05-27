@@ -45,7 +45,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
 
         public AutorExtForm()
         {
-            BBDD.Conectar("root");
+            BBDD.Conectar("tomas");
             autoresExt = (List<AutorExterno>)AutorExternoDAO.MostrarTodo();
             InitializeComponent();
             RellenarDataGrid();

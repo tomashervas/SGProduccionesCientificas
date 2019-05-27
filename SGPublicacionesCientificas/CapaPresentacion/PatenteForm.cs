@@ -24,6 +24,10 @@ namespace SGPublicacionesCientificas.CapaPresentacion
         private AutorExterno AutorSeleccionado = null;
         private Patente PatenteSeleccionada = null;
 
+        /// <summary>
+        /// Metodo para encontrar por id una patente dentro de una lista
+        /// </summary>
+        /// <returns>Objeto de tipo patente</returns>
         private Patente BuscarSeleccionado()
         {
             int id = (int)dataGridPatente.SelectedRows[0].Cells[0].Value;
@@ -39,6 +43,10 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             return patente;
         }
 
+        /// <summary>
+        /// Metodo para encontrar por id un autor  dentro de una lista
+        /// </summary>
+        /// <returns>Devuelve un objeto de tipo AutorExterno</returns>
         private AutorExterno BuscarAutorSeleccionado()
         {
             int id = (int)dataGridAutores.SelectedRows[0].Cells[0].Value;
@@ -54,6 +62,9 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             return Autor;
         }
 
+        /// <summary>
+        /// Metodo que recorre la lista de patentes y va rellenando el DataGridView
+        /// </summary>
         private void RellenarDataGrid()
         {
             dataGridPatente.Rows.Clear();
@@ -63,6 +74,12 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             }
         }
 
+        /// <summary>
+        /// Método para rellenar un datagrid con objetos de tipo AutorExterno, ya que en esta lista se encuentran todos los autores
+        /// y nos permite sellecionarlos para rellenar una nueva patente
+        /// </summary>
+        /// <param name="data">Objeto de tipo dataGridView</param>
+        /// <param name="lista">Lista de autorExterno</param>
         private void RellenarDataAutores(DataGridView data, List<AutorExterno> lista)
         {
             data.Rows.Clear();
@@ -72,9 +89,10 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             }
         }
 
+
         public PatenteForm()
         {
-            BBDD.Conectar("root");
+            BBDD.Conectar("tomas");
             ListaPatentes = (List<Patente>) PatenteDAO.MostrarTodo();
             InitializeComponent();
             RellenarDataGrid();
@@ -82,6 +100,10 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             RellenarDataAutores(dataGridAutores, (List<AutorExterno>)ListaAutoresCompleta);
         }
 
+        /// <summary>
+        /// Método que permite rellenar el formularrio, una vez llamado el evento de click en una casilla del datagrid, así
+        /// nos permite modificar los textbox y modificar la patente en el mismo form
+        /// </summary>
         private void RellenarForm()
         {
             Patente patente = new Patente();
@@ -94,6 +116,11 @@ namespace SGPublicacionesCientificas.CapaPresentacion
 
         }
 
+        /// <summary>
+        /// metodo que permite rellenar el formulario de una nueva patente, es llamado una vez se ha rellenado, sino salta un messagebox avisando,
+        /// después borra de nuevo el formulario y actualiza el datagrid, también llama el método insertar del DAO patente para
+        /// reflejar el resultado en la base de datos
+        /// </summary>
         private void Insertar()
         {
             IDactualProduccion = PatenteDAO.IDactual();
@@ -121,6 +148,9 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             }
         }
 
+        /// <summary>
+        /// Método que elimina la patente seleccionada del datagrid y llama al dao para elimanarla de la base de datos
+        /// </summary>
         private void Eliminar()
         {
             Patente patente = BuscarSeleccionado();
@@ -129,6 +159,10 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             ListaPatentes.Remove(patente);
         }
 
+        /// <summary>
+        /// Metdodo que una vez seleccionado la patente en el datagrid, rellena el formulario y permite modificar la informacion en el
+        /// la memoria y en la base de datos
+        /// </summary>
         private void Modificar()
         {
             Patente patente = BuscarSeleccionado();
@@ -148,6 +182,11 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             RellenarDataGrid();
         }
 
+        /// <summary>
+        /// Método que lla a los metodos modificar o insertar según se haya seleccionado una patente del datagrid o no
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void guardarBoton_Click(object sender, EventArgs e)
         {
             if (FilaSeleccionada)
@@ -161,6 +200,9 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             }
         }
 
+        /// <summary>
+        /// Método que borra el formulario para introducir una nueva patente
+        /// </summary>
         private void BorrarForm()
         {
             textTitulo.Clear();
@@ -178,6 +220,12 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             FilaSeleccionada = false;
         }
 
+        /// <summary>
+        /// Metodo que llama al método eliminar, antes comprueba que se haya seleccionado un registro y pregunta al usuario por
+        /// confirmación
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EliminarAutorBoton_Click(object sender, EventArgs e)
         {
             if (dataGridPatente.SelectedRows.Count > 0)
@@ -201,6 +249,12 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             BBDD.Desconectar();
         }
 
+        /// <summary>
+        /// Metodo que rellena el datagrid, vacía las listas de autores relacionados con la patente y la lista total de autores,
+        /// activa los métodos de rellenado de los otros 2 datagrid al hacer click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridPatente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             modificado = true;
@@ -215,7 +269,7 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             {
                 AutorExterno autor = AutorExternoDAO.BuscarAutorPorID(id);
                 ListaAutoresPublicacion.Add(autor);
-                Console.WriteLine(autor.Nombre);
+                //Console.WriteLine(autor.Nombre);
             }
             RellenarDataAutores(dataGridAutoresPublicacion, (List<AutorExterno>)ListaAutoresPublicacion);
         }
@@ -225,6 +279,12 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             AutorSeleccionado = BuscarAutorSeleccionado();
         }
 
+        /// <summary>
+        /// Metodo que es llamado al hacer click en el boton flecha que hay entre los 2 datagrid de autores y permite pasar de la lsita
+        /// general de todos los autores a la lista de los autores que se guardarán relacionados a la patente que damos de alta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AñadirAutor_Click(object sender, EventArgs e)
         {
             if (modificado)
@@ -247,6 +307,11 @@ namespace SGPublicacionesCientificas.CapaPresentacion
             }
         }
 
+        /// <summary>
+        /// metodo que permite calcular la calidad de la patente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CalidadBoton_Click(object sender, EventArgs e)
         {
             if (PatenteSeleccionada != null)

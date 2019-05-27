@@ -13,7 +13,7 @@ namespace SGPublicacionesCientificas.CapaDAOs
 
         public static void Conectar(string usuario/*, string password*/)
         {
-            string cadenaConexion = "server=127.0.0.1;user=" + usuario + ";password=;database=gestorpublicaciones";
+            string cadenaConexion = "server=18.222.140.69;user=" + usuario + ";password=tomas;database=gestorpublicaciones";
             conexion = new MySqlConnection(cadenaConexion);
             conexion.Open();
         }

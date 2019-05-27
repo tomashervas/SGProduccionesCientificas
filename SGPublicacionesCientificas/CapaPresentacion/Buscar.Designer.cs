@@ -37,10 +37,10 @@
             this.año = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoGrupo = new System.Windows.Forms.GroupBox();
-            this.radioTodos = new System.Windows.Forms.RadioButton();
-            this.radioPatente = new System.Windows.Forms.RadioButton();
-            this.radioConferencia = new System.Windows.Forms.RadioButton();
             this.radioRevista = new System.Windows.Forms.RadioButton();
+            this.radioConferencia = new System.Windows.Forms.RadioButton();
+            this.radioPatente = new System.Windows.Forms.RadioButton();
+            this.radioTodos = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProducciones)).BeginInit();
             this.tipoGrupo.SuspendLayout();
             this.SuspendLayout();
@@ -132,27 +132,16 @@
             this.tipoGrupo.TabStop = false;
             this.tipoGrupo.Text = "Tipo";
             // 
-            // radioTodos
+            // radioRevista
             // 
-            this.radioTodos.AutoSize = true;
-            this.radioTodos.Location = new System.Drawing.Point(7, 20);
-            this.radioTodos.Name = "radioTodos";
-            this.radioTodos.Size = new System.Drawing.Size(55, 17);
-            this.radioTodos.TabIndex = 0;
-            this.radioTodos.TabStop = true;
-            this.radioTodos.Text = "Todos";
-            this.radioTodos.UseVisualStyleBackColor = true;
-            // 
-            // radioPatente
-            // 
-            this.radioPatente.AutoSize = true;
-            this.radioPatente.Location = new System.Drawing.Point(69, 20);
-            this.radioPatente.Name = "radioPatente";
-            this.radioPatente.Size = new System.Drawing.Size(62, 17);
-            this.radioPatente.TabIndex = 1;
-            this.radioPatente.TabStop = true;
-            this.radioPatente.Text = "Patente";
-            this.radioPatente.UseVisualStyleBackColor = true;
+            this.radioRevista.AutoSize = true;
+            this.radioRevista.Location = new System.Drawing.Point(245, 20);
+            this.radioRevista.Name = "radioRevista";
+            this.radioRevista.Size = new System.Drawing.Size(80, 17);
+            this.radioRevista.TabIndex = 3;
+            this.radioRevista.TabStop = true;
+            this.radioRevista.Text = "Art. Revista";
+            this.radioRevista.UseVisualStyleBackColor = true;
             // 
             // radioConferencia
             // 
@@ -165,16 +154,27 @@
             this.radioConferencia.Text = "Art. Conferencia";
             this.radioConferencia.UseVisualStyleBackColor = true;
             // 
-            // radioRevista
+            // radioPatente
             // 
-            this.radioRevista.AutoSize = true;
-            this.radioRevista.Location = new System.Drawing.Point(245, 20);
-            this.radioRevista.Name = "radioRevista";
-            this.radioRevista.Size = new System.Drawing.Size(80, 17);
-            this.radioRevista.TabIndex = 3;
-            this.radioRevista.TabStop = true;
-            this.radioRevista.Text = "Art. Revista";
-            this.radioRevista.UseVisualStyleBackColor = true;
+            this.radioPatente.AutoSize = true;
+            this.radioPatente.Location = new System.Drawing.Point(69, 20);
+            this.radioPatente.Name = "radioPatente";
+            this.radioPatente.Size = new System.Drawing.Size(62, 17);
+            this.radioPatente.TabIndex = 1;
+            this.radioPatente.TabStop = true;
+            this.radioPatente.Text = "Patente";
+            this.radioPatente.UseVisualStyleBackColor = true;
+            // 
+            // radioTodos
+            // 
+            this.radioTodos.AutoSize = true;
+            this.radioTodos.Location = new System.Drawing.Point(7, 20);
+            this.radioTodos.Name = "radioTodos";
+            this.radioTodos.Size = new System.Drawing.Size(55, 17);
+            this.radioTodos.TabIndex = 0;
+            this.radioTodos.TabStop = true;
+            this.radioTodos.Text = "Todos";
+            this.radioTodos.UseVisualStyleBackColor = true;
             // 
             // Buscar
             // 
@@ -189,6 +189,7 @@
             this.Controls.Add(this.textNombre);
             this.Name = "Buscar";
             this.Text = "Buscar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Buscar_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProducciones)).EndInit();
             this.tipoGrupo.ResumeLayout(false);
             this.tipoGrupo.PerformLayout();
